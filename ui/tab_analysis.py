@@ -1,0 +1,258 @@
+"""
+ui/tab_analysis.py — Tab 1: Resume Analysis.
+
+Phase integration points are clearly marked with # ── PHASE N ── comments.
+Each phase adds capability without breaking the previous one.
+"""
+
+from __future__ import annotations
+import streamlit as st
+from datetime import datetime
+
+from utils.resume_parser import extract_text, analyze_resume
+from utils.prompts       import analysis_prompt
+from utils.llm_client    import ask_llm
+from ui.theme            import gauge_html, skill_pills
+from config              import USE_FIRECRAWL, USE_RAG, USE_CREW
+
+
+def render(tv: dict) -> None:
+
+    # ── Hero ─────────────────────────────────────────────────────────────────
+    hero_col, anim_col = st.columns([2, 1])
+    with hero_col:
+        st.markdown(
+            f'<div class="hero-card">'
+            f'<h3 style="margin-top:0;">🎯 Land Your Dream Job Faster</h3>'
+            f'<p style="font-size:15.5px;opacity:.9;">'
+            f'ATS score · missing skills · line-by-line critique · interview prep — all in one run.'
+            f'</p></div>',
+            unsafe_allow_html=True,
+        )
+    with anim_col:
+        _scan_animation(tv)
+
+    st.write("")
+
+    # ── Upload section ────────────────────────────────────────────────────────
+    col1, col2 = st.columns(2)
+    with col1:
+        with st.container(border=True):
+            st.subheader("📄 Resume")
+            resume = st.file_uploader("Upload Resume", type=["pdf", "docx"],
+                                      label_visibility="collapsed")
+    with col2:
+        with st.container(border=True):
+            st.subheader("💼 Job Description")
+
+            # ── PHASE 2: Firecrawl URL input ──────────────────────────────────
+            if USE_FIRECRAWL:
+                jd_source = st.radio(
+                    "Source", ["Paste text", "Scrape URL"],
+                    horizontal=True, label_visibility="collapsed",
+                )
+                if jd_source == "Scrape URL":
+                    jd_url = st.text_input(
+                        "Job posting URL",
+                        placeholder="https://www.linkedin.com/jobs/view/...",
+                        label_visibility="collapsed",
+                    )
+                    job_description = ""
+                    if jd_url and st.button("🌐 Fetch JD"):
+                        with st.spinner("Scraping with Firecrawl …"):
+                            try:
+                                from tools.firecrawl_tool import scrape_job_url
+                                job_description = scrape_job_url(jd_url)
+                                st.session_state.scraped_jd = job_description
+                                st.success("✅ Job description fetched!")
+                            except Exception as e:
+                                st.error(f"Firecrawl error: {e}")
+                    job_description = st.session_state.get("scraped_jd", "")
+                else:
+                    job_description = st.text_area(
+                        "Job Description", height=180,
+                        placeholder="Paste the job description here …",
+                        label_visibility="collapsed",
+                    )
+            # ── PHASE 1: plain paste ──────────────────────────────────────────
+            else:
+                job_description = st.text_area(
+                    "Job Description", height=180,
+                    placeholder="Paste the job description here …",
+                    label_visibility="collapsed",
+                )
+
+    # ── Resume processing ─────────────────────────────────────────────────────
+    if not resume:
+        st.info("👆 Upload a PDF or DOCX resume above to get started.")
+        return
+
+    with st.spinner("Reading resume …"):
+        resume_text = extract_text(resume)
+        if resume_text:
+            st.session_state.resume_text = resume_text
+
+    if not resume_text.strip():
+        st.error("⚠ Couldn't extract text — try a text-based PDF/DOCX.")
+        st.stop()
+
+    st.success("✅ Resume uploaded!")
+
+    with st.expander("📄 View extracted text"):
+        st.text_area("", resume_text, height=250, label_visibility="collapsed")
+        st.download_button("📥 Download text", resume_text,
+                           "resume_text.txt", "text/plain",
+                           use_container_width=True)
+
+    st.divider()
+
+    if not st.button("🚀 Analyze Resume", use_container_width=True):
+        return
+
+    if not job_description.strip():
+        st.warning("⚠ Please provide a job description before analyzing.")
+        return
+
+    # ── PHASE 3: RAG context retrieval ───────────────────────────────────────
+    rag_context = ""
+    if USE_RAG:
+        with st.spinner("🔍 Retrieving similar roles from market corpus …"):
+            try:
+                from rag.rag_pipeline import retrieve_similar_jds, format_rag_context
+                similar = retrieve_similar_jds(job_description)
+                rag_context = format_rag_context(similar)
+                if rag_context:
+                    st.caption(f"📚 RAG: grounded analysis with {len(similar)} similar JDs.")
+            except Exception as e:
+                st.caption(f"RAG retrieval skipped: {e}")
+
+    # ── PHASE 4: CrewAI multi-agent pipeline ─────────────────────────────────
+    if USE_CREW:
+        with st.spinner("🤖 Running CrewAI multi-agent pipeline (this takes a few minutes) …"):
+            try:
+                from agents.crew import run_crew_analysis
+                crew_result = run_crew_analysis(resume_text, job_description)
+                _render_crew_results(crew_result, resume, tv)
+                return
+            except Exception as e:
+                st.warning(f"CrewAI failed ({e}), falling back to single-agent analysis.")
+
+    # ── PHASE 1 / 2 / 3: single-agent analysis ───────────────────────────────
+    with st.spinner("Running deep AI analysis …"):
+        result   = analyze_resume(resume_text, job_description)
+        prompt   = analysis_prompt(
+            resume_text, job_description,
+            result["matched"], result["missing"], result["score"],
+            rag_context=rag_context,
+        )
+        feedback = ask_llm(prompt, max_tokens=1500)
+
+    _save_result(resume.name, result, job_description)
+    _render_single_results(result, feedback, resume, tv)
+
+
+# ── Helpers ───────────────────────────────────────────────────────────────────
+
+def _save_result(filename: str, result: dict, jd: str) -> None:
+    st.session_state.last_analysis_result  = result
+    st.session_state.last_job_description  = jd
+    st.session_state.history.append({
+        "filename": filename,
+        "score":    result["score"],
+        "time":     datetime.now().strftime("%H:%M:%S"),
+    })
+
+
+def _render_single_results(result: dict, feedback: str, resume, tv: dict) -> None:
+    st.success("🎉 Analysis complete!")
+
+    st.subheader("📊 ATS Match Score")
+    st.markdown(gauge_html(result["score"], tv["card"], tv["border"], tv["text"]),
+                unsafe_allow_html=True)
+    st.progress(result["score"] / 100)
+
+    st.divider()
+    c1, c2, c3 = st.columns(3)
+    c1.metric("✅ Skills Matched",   len(result["matched"]))
+    c2.metric("⚠ Missing Skills",   len(result["missing"]))
+    c3.metric("🎯 Interview Readiness", f"{max(10, min(95, result['score']-5))}%")
+
+    st.divider()
+    st.subheader("🤖 AI Resume Review")
+    st.markdown(feedback)
+
+    st.divider()
+    st.subheader("✅ Skills Found")
+    st.markdown(skill_pills(result["matched"], "#DCFCE7", "#15803D"), unsafe_allow_html=True)
+    st.subheader("⚠ Missing Skills")
+    st.markdown(skill_pills(result["missing"], "#FEF3C7", "#B45309"), unsafe_allow_html=True)
+
+    st.divider()
+    report = "\n".join([
+        "AI RESUME ANALYZER — REPORT",
+        f"Generated: {datetime.now():%Y-%m-%d %H:%M:%S}",
+        f"File: {resume.name}",
+        f"\nATS Score: {result['score']}%",
+        f"\nMatched: {', '.join(result['matched']) or 'None'}",
+        f"\nMissing: {', '.join(result['missing']) or 'None'}",
+        f"\n\n{feedback}",
+    ])
+    st.download_button("📥 Download Report", report,
+                       f"analysis_{datetime.now():%Y%m%d_%H%M%S}.txt",
+                       "text/plain", use_container_width=True)
+    st.balloons()
+
+
+def _render_crew_results(crew: dict, resume, tv: dict) -> None:
+    """Render the richer CrewAI multi-agent output."""
+    st.success("🎉 CrewAI analysis complete!")
+
+    with st.expander("📋 JD Analysis (Agent 1)", expanded=True):
+        st.markdown(crew["jd_analysis"])
+
+    with st.expander("🔍 Resume Critique (Agent 2)", expanded=True):
+        st.markdown(crew["critique"])
+
+    with st.expander("📈 Market Intelligence (Agent 3)", expanded=False):
+        st.markdown(crew["market"])
+
+    with st.expander("✍ Resume Rewrites (Agent 4)", expanded=True):
+        st.markdown(crew["rewrite"])
+
+    with st.expander("🎤 Interview Prep (Agent 5)", expanded=True):
+        st.markdown(crew["interview"])
+
+    st.divider()
+    st.download_button(
+        "📥 Download Full CrewAI Report",
+        crew["full_report"],
+        f"crew_analysis_{datetime.now():%Y%m%d_%H%M%S}.txt",
+        "text/plain",
+        use_container_width=True,
+    )
+    st.balloons()
+
+
+def _scan_animation(tv: dict) -> None:
+    st.markdown(f"""
+<div style="position:relative;width:150px;height:170px;margin:0 auto;
+     display:flex;align-items:center;justify-content:center;">
+  <div style="position:absolute;width:170px;height:170px;border-radius:50%;
+       border:1.5px dashed {tv['border']};animation:orbitSpin 9s linear infinite;"></div>
+  <div style="position:relative;width:110px;height:150px;background:{tv['card']};
+       border:1.5px solid {tv['border']};border-radius:10px;overflow:hidden;
+       animation:docFloat 3.2s ease-in-out infinite;">
+    <div style="position:absolute;left:0;top:0;width:100%;height:22px;
+         background:linear-gradient(180deg,rgba(99,102,241,0),rgba(99,102,241,.45),rgba(99,102,241,0));
+         animation:scanMove 2.4s ease-in-out infinite;"></div>
+    <div style="height:7px;margin:12px 12px 0;border-radius:4px;background:#818CF8;opacity:.55;"></div>
+    <div style="height:7px;margin:10px 12px 0;width:70%;border-radius:4px;background:#818CF8;opacity:.55;"></div>
+    <div style="height:7px;margin:10px 12px 0;width:85%;border-radius:4px;background:#818CF8;opacity:.55;"></div>
+    <div style="height:7px;margin:10px 12px 0;width:55%;border-radius:4px;background:#818CF8;opacity:.55;"></div>
+  </div>
+</div>
+<style>
+@keyframes orbitSpin{{from{{transform:rotate(0)}}to{{transform:rotate(360deg)}}}}
+@keyframes docFloat{{0%,100%{{transform:translateY(0)}}50%{{transform:translateY(-6px)}}}}
+@keyframes scanMove{{0%{{top:-10%}}50%{{top:95%}}100%{{top:-10%}}}}
+</style>""", unsafe_allow_html=True)
