@@ -5,3 +5,5 @@ __pycache__/
 *.pyo
 chroma_db/
 .DS_Store
+utils/llm_client.py
+tools/firecrawl_tool.py
