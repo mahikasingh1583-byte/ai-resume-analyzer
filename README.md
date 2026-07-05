@@ -1,4 +1,5 @@
 # 🚀 AI Resume Analyzer
+https://ai-resume-analyzer-tpbljxbxpqblld9bh3eqgw.streamlit.app/
 
 A multi-phase AI-powered resume analysis tool built with Streamlit, CrewAI, Firecrawl, and RAG.
 
