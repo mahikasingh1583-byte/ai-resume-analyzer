@@ -1,0 +1,28 @@
+DevOps Engineer
+
+Overview:
+Our platform team is responsible for the infrastructure that powers our entire product suite. We're looking for a DevOps Engineer to help us improve deployment velocity and system reliability.
+
+Responsibilities:
+- Manage and improve CI/CD pipelines (GitHub Actions/Jenkins)
+- Maintain and scale infrastructure on AWS using Terraform
+- Monitor system health and respond to incidents (on-call rotation)
+- Implement and improve observability (logging, metrics, tracing)
+- Collaborate with development teams to improve deployment practices
+
+Requirements:
+- 3+ years of experience in a DevOps, SRE, or Infrastructure role
+- Strong experience with AWS (EC2, S3, RDS, VPC, IAM)
+- Proficiency with Infrastructure as Code (Terraform or CloudFormation)
+- Experience with containerization (Docker) and orchestration (Kubernetes)
+- Scripting ability in Python or Bash
+
+Preferred:
+- Experience with GitOps workflows (ArgoCD, Flux)
+- Familiarity with Prometheus/Grafana for monitoring
+- Certifications: AWS Solutions Architect or similar
+
+Compensation:
+- $120,000-$160,000 base salary
+- Equity package
+- Fully remote with occasional travel for team offsites

@@ -1,0 +1,31 @@
+Business Analyst
+
+We are seeking a Business Analyst to bridge the gap between business needs and technology.
+
+Requirements:
+- 2+ years of business analysis experience
+- Strong analytical and problem-solving skills
+- Experience with requirements gathering and documentation
+- Knowledge of business process modeling (BPMN)
+- Proficiency in SQL for data analysis
+- Experience with project management tools (Jira, Confluence)
+- Familiarity with Agile and Scrum methodologies
+- Strong communication and stakeholder management skills
+- Experience creating use cases and user stories
+- Proficiency in Excel and data visualization
+
+Nice to have:
+- Knowledge of ERP systems (SAP, Oracle)
+- Experience with process automation (RPA)
+- Familiarity with UML diagrams
+- Knowledge of financial modeling
+- Experience with Tableau or Power BI
+- Business Analysis certification (CBAP, PMI-PBA)
+
+Responsibilities:
+- Gather and document business requirements
+- Analyze business processes and identify improvements
+- Facilitate workshops with stakeholders
+- Create functional specifications and user stories
+- Support UAT and quality assurance processes
+- Communicate project progress to stakeholders

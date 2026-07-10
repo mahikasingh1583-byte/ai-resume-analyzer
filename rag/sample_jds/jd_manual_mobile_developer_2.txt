@@ -1,0 +1,29 @@
+Mobile Developer (React Native)
+
+About the Role:
+We're looking for a Mobile Developer to help build and maintain our cross-platform mobile app, used by over 1 million active users on iOS and Android.
+
+Responsibilities:
+- Develop and maintain features in our React Native application
+- Optimize app performance and troubleshoot platform-specific issues
+- Collaborate with backend engineers to integrate REST/GraphQL APIs
+- Write unit and integration tests to ensure code quality
+- Participate in app store release processes for iOS and Android
+
+Requirements:
+- 3+ years of experience building production mobile apps with React Native
+- Strong JavaScript/TypeScript skills
+- Experience with native modules and bridging (Swift/Kotlin knowledge a plus)
+- Familiarity with state management (Redux, MobX, or Context API)
+- Experience publishing apps to the App Store and Google Play
+
+Preferred Qualifications:
+- Experience with Expo
+- Understanding of mobile CI/CD (Fastlane, Bitrise)
+- Experience with push notifications and deep linking
+
+Benefits:
+- Remote position with flexible hours
+- Health insurance coverage
+- Annual device/equipment stipend
+- Generous PTO policy

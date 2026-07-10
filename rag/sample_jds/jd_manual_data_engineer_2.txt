@@ -1,0 +1,29 @@
+Data Engineer
+
+About the Role:
+We're building a modern data platform to support analytics and machine learning across the company. We need a Data Engineer to help design and scale our data pipelines.
+
+Responsibilities:
+- Design, build, and maintain ETL/ELT pipelines using Airflow and dbt
+- Manage our data warehouse (Snowflake) and optimize query performance
+- Ensure data quality and implement monitoring/alerting for pipeline failures
+- Collaborate with data scientists and analysts to make data accessible and reliable
+- Document data models and maintain a data catalog
+
+Requirements:
+- 3+ years of experience in data engineering
+- Strong SQL skills and experience with a cloud data warehouse (Snowflake, BigQuery, or Redshift)
+- Proficiency in Python for pipeline development
+- Experience with orchestration tools (Airflow, Dagster, or Prefect)
+- Understanding of data modeling concepts (star schema, dimensional modeling)
+
+Preferred Qualifications:
+- Experience with dbt for data transformation
+- Familiarity with streaming data (Kafka, Kinesis)
+- Experience with infrastructure as code (Terraform)
+
+What We Offer:
+- Competitive salary and equity
+- Remote-first, flexible schedule
+- Comprehensive health benefits
+- Professional development budget

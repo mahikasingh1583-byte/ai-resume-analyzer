@@ -1,0 +1,30 @@
+Backend Software Engineer
+
+About the Role:
+We are hiring a Backend Engineer to help scale our core platform, which handles millions of API requests per day. You'll work on services written primarily in Python and Go.
+
+Responsibilities:
+- Design and build scalable, reliable backend services and APIs
+- Own services from design through deployment and monitoring
+- Improve system performance and reduce latency across critical paths
+- Collaborate with frontend and mobile teams to define API contracts
+- Contribute to architectural decisions as the platform scales
+
+Requirements:
+- 4+ years of backend development experience
+- Strong proficiency in Python; experience with Go is a plus
+- Experience with relational databases (PostgreSQL or MySQL) and caching layers (Redis)
+- Solid understanding of REST and/or GraphQL API design
+- Experience with containerization (Docker) and orchestration (Kubernetes)
+- Familiarity with message queues (Kafka, RabbitMQ, or SQS)
+
+Bonus Points:
+- Experience working in a microservices architecture
+- Contributions to open-source projects
+- Experience with observability tools (Datadog, Grafana, Prometheus)
+
+Compensation & Benefits:
+- Base salary $110,000-$150,000 depending on experience
+- Stock options
+- Fully remote, flexible hours
+- 401(k) with 4% match

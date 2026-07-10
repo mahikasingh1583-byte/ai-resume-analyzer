@@ -1,0 +1,29 @@
+Cloud Infrastructure Engineer (AWS)
+
+Overview:
+We're expanding our cloud infrastructure team to support rapid growth. You'll be responsible for designing, building, and maintaining our AWS environment across multiple regions.
+
+Responsibilities:
+- Architect and maintain scalable AWS infrastructure (EC2, ECS, Lambda, RDS)
+- Implement Infrastructure as Code using Terraform
+- Ensure security best practices across cloud environments (IAM, VPC, security groups)
+- Optimize cloud costs and monitor usage
+- Support disaster recovery and business continuity planning
+
+Requirements:
+- 3+ years of hands-on AWS experience
+- Strong knowledge of Terraform or CloudFormation
+- Experience with networking concepts (VPC, subnets, load balancers)
+- Scripting experience in Python or Bash
+- Understanding of security best practices in cloud environments
+
+Preferred Qualifications:
+- AWS Certified Solutions Architect (Associate or Professional)
+- Experience with multi-account AWS organizations
+- Familiarity with container orchestration (ECS or Kubernetes)
+
+What We Offer:
+- Fully remote position
+- Competitive salary + annual bonus
+- Home office setup budget
+- Generous PTO policy

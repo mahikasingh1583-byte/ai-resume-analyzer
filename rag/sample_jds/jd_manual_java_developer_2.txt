@@ -1,0 +1,30 @@
+Java Backend Developer
+
+Job Description:
+We are looking for an experienced Java Developer to join our enterprise software team building high-throughput financial transaction systems.
+
+Key Responsibilities:
+- Design and develop scalable backend services using Java and Spring Boot
+- Write clean, well-tested, maintainable code following SOLID principles
+- Work with relational databases (Oracle, PostgreSQL) and optimize queries
+- Participate in Agile ceremonies (sprint planning, standups, retrospectives)
+- Collaborate with QA to ensure high code quality and test coverage
+
+Requirements:
+- 4+ years of professional Java development experience
+- Strong experience with Spring Boot and Spring Data JPA
+- Solid understanding of multithreading and concurrency in Java
+- Experience with relational databases and SQL optimization
+- Familiarity with microservices architecture and REST APIs
+
+Preferred:
+- Experience with Kafka or other messaging systems
+- Exposure to cloud platforms (AWS or Azure)
+- Knowledge of Docker/Kubernetes
+- Experience in banking or financial services industry
+
+Benefits:
+- Hybrid work model (2 days in office)
+- Comprehensive health insurance
+- Annual bonus based on performance
+- Tuition reimbursement program

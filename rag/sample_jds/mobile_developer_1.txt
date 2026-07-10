@@ -1,0 +1,31 @@
+Mobile App Developer
+
+We are looking for a Mobile Developer to build cross-platform mobile applications.
+
+Requirements:
+- 2+ years of mobile development experience
+- Proficiency in React Native or Flutter
+- Knowledge of iOS development (Swift) or Android development (Kotlin)
+- Experience with mobile UI/UX design principles
+- Familiarity with REST API integration
+- Knowledge of mobile app state management
+- Experience with app store submission (Apple App Store, Google Play)
+- Understanding of mobile app performance optimization
+- Familiarity with push notifications and background services
+- Experience with Git and version control
+
+Nice to have:
+- Experience with both iOS and Android native development
+- Knowledge of mobile security best practices
+- Familiarity with Firebase for mobile backends
+- Experience with mobile testing frameworks
+- Knowledge of deep linking and app navigation patterns
+- Experience with Bluetooth or IoT integrations
+
+Responsibilities:
+- Design and build mobile applications for iOS and Android
+- Integrate with backend APIs and services
+- Ensure app performance and responsiveness
+- Write unit and UI tests
+- Collaborate with designers to implement UI
+- Publish and maintain apps on app stores

@@ -1,0 +1,31 @@
+Data Analyst
+
+We are looking for a Data Analyst to transform data into actionable business insights.
+
+Requirements:
+- 2+ years of data analysis experience
+- Strong SQL skills for complex data queries
+- Proficiency in Excel and Google Sheets
+- Experience with data visualization tools (Tableau, Power BI, or Looker)
+- Knowledge of Python or R for data analysis
+- Experience with statistical analysis and data modeling
+- Familiarity with ETL processes
+- Strong analytical and critical thinking skills
+- Excellent communication skills to present findings
+- Experience working with large datasets
+
+Nice to have:
+- Knowledge of Pandas and NumPy
+- Experience with Google Analytics or Adobe Analytics
+- Familiarity with A/B testing and experimentation
+- Knowledge of data warehousing concepts (Snowflake, BigQuery)
+- Experience with dbt for data transformation
+- Understanding of business intelligence concepts
+
+Responsibilities:
+- Analyze large datasets to extract meaningful insights
+- Create dashboards and reports for stakeholders
+- Identify trends and patterns in business data
+- Work with business teams to understand data requirements
+- Ensure data quality and accuracy
+- Present findings and recommendations to leadership

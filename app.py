@@ -17,6 +17,7 @@ _defaults = {
     "history": [],
     "mentor_chat": [],
     "dark_mode": False,
+    "selected_theme": "🌸 Soft Purple (Default)",
     "roadmaps": {},
     "rewritten_resume": "",
     "resume_text": "",
@@ -27,14 +28,14 @@ _defaults = {
 for k, v in _defaults.items():
     st.session_state.setdefault(k, v)
 
-# ── Theme ────────────────────────────────────────────────────────────────────
-from ui.theme import apply_theme, theme_vars
-apply_theme(st.session_state.dark_mode)
-tv = theme_vars(st.session_state.dark_mode)
-
-# ── Sidebar ──────────────────────────────────────────────────────────────────
-from ui.sidebar import render_sidebar
+# ── Sidebar (MUST run first — it sets selected_theme / dark_mode) ───────────
+from ui.sidebar import render_sidebar, get_current_theme
 render_sidebar()
+
+# ── Theme (computed AFTER sidebar, so it reflects this run's selection) ─────
+from ui.theme import apply_theme
+tv = get_current_theme()
+apply_theme(tv)   # receives the full color dict, not just dark_mode
 
 # ── Header ───────────────────────────────────────────────────────────────────
 st.markdown('<div class="title">🚀 AI Resume Analyzer</div>', unsafe_allow_html=True)

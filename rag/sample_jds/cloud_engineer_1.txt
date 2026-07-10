@@ -1,0 +1,31 @@
+Cloud Engineer
+
+Join our team as a Cloud Engineer to design and manage cloud infrastructure.
+
+Requirements:
+- 3+ years of cloud engineering experience
+- Deep expertise in AWS, Azure, or GCP
+- Experience with Infrastructure as Code (Terraform, CloudFormation)
+- Knowledge of Kubernetes and container orchestration
+- Experience with networking in cloud environments (VPC, subnets, security groups)
+- Familiarity with cloud security best practices (IAM, encryption, compliance)
+- Experience with monitoring and logging (CloudWatch, Stackdriver)
+- Scripting skills in Python or Bash
+- Knowledge of cost optimization strategies
+- AWS Solutions Architect or equivalent certification preferred
+
+Nice to have:
+- Multi-cloud experience
+- Experience with serverless architectures (Lambda, Cloud Functions)
+- Knowledge of cloud databases (RDS, DynamoDB, Bigtable)
+- Familiarity with CDN and edge computing
+- Experience with disaster recovery planning
+- Knowledge of FinOps practices
+
+Responsibilities:
+- Design and implement cloud architecture solutions
+- Manage cloud resources and optimize costs
+- Implement security and compliance controls
+- Automate infrastructure provisioning
+- Monitor system performance and reliability
+- Migrate on-premise workloads to cloud

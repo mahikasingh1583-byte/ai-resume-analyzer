@@ -1,0 +1,31 @@
+Software Engineer Intern
+
+We are looking for passionate software engineering interns to join our team.
+
+Requirements:
+- Currently pursuing a Bachelor's or Master's degree in Computer Science or related field
+- Strong programming fundamentals in any language (Python, Java, C++, JavaScript)
+- Knowledge of data structures and algorithms
+- Familiarity with Git and version control
+- Basic understanding of databases and SQL
+- Strong problem-solving skills
+- Eagerness to learn and grow
+- Good communication and teamwork skills
+- Experience with at least one personal or academic project
+- GPA of 7.0 or above preferred
+
+Nice to have:
+- Experience with web development (HTML, CSS, JavaScript, React)
+- Familiarity with cloud platforms (AWS, GCP)
+- Knowledge of machine learning basics
+- Open source contributions
+- Participation in competitive programming or hackathons
+- Experience with mobile development
+
+Responsibilities:
+- Work on real product features with mentorship
+- Write clean and tested code
+- Participate in team meetings and code reviews
+- Learn and apply software engineering best practices
+- Collaborate with full-time engineers on projects
+- Present work and learnings at end of internship

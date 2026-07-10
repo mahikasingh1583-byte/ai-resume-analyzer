@@ -1,0 +1,29 @@
+QA Automation Engineer
+
+About the Role:
+We are seeking a QA Automation Engineer to help us build a robust, scalable test automation framework for our web and mobile applications.
+
+Responsibilities:
+- Design, develop, and maintain automated test suites using Selenium/Playwright
+- Build and maintain API test automation using Postman/RestAssured
+- Integrate automated tests into our CI/CD pipeline
+- Collaborate with developers to identify edge cases and improve test coverage
+- Triage and report bugs with clear reproduction steps
+
+Requirements:
+- 2+ years of experience in test automation
+- Strong proficiency in Python or JavaScript for writing test scripts
+- Experience with Selenium, Playwright, or Cypress
+- Understanding of API testing tools (Postman, RestAssured)
+- Familiarity with CI/CD tools (Jenkins, GitHub Actions)
+
+Preferred Qualifications:
+- ISTQB certification
+- Experience with performance testing tools (JMeter, k6)
+- Exposure to mobile test automation (Appium)
+
+What We Offer:
+- Competitive salary
+- Fully remote position
+- Flexible working hours
+- Annual learning and certification budget

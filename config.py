@@ -37,11 +37,11 @@ DEFAULT_MODELS = {
 # Flip these to True as you complete each phase.
 
 # Phase 2 — Firecrawl (scrape job URLs instead of manual paste)
-USE_FIRECRAWL    = os.getenv("USE_FIRECRAWL", "false").lower() == "true"
+USE_FIRECRAWL    = True
 FIRECRAWL_API_KEY = os.getenv("FIRECRAWL_API_KEY", "")
 
 # Phase 3 — RAG (vector store grounds analysis in real market data)
-USE_RAG          = os.getenv("USE_RAG", "false").lower() == "true"
+USE_RAG          = True
 CHROMA_PERSIST_DIR = os.getenv("CHROMA_PERSIST_DIR", "./chroma_db")
 EMBEDDING_MODEL  = os.getenv("EMBEDDING_MODEL", "all-MiniLM-L6-v2")
 RAG_TOP_K        = int(os.getenv("RAG_TOP_K", "5"))

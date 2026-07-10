@@ -18,23 +18,40 @@ from config import USE_RAG, CHROMA_PERSIST_DIR, EMBEDDING_MODEL, RAG_TOP_K
 
 
 def is_available() -> bool:
-    """Returns True when RAG is configured and the vector store exists."""
-    if not USE_RAG:
-        return False
-    try:
-        import chromadb  # noqa: F401
-        from sentence_transformers import SentenceTransformer  # noqa: F401
-        return True
-    except ImportError:
-        return False
+    import os
+    # Check multiple possible locations
+    possible_paths = [
+        CHROMA_PERSIST_DIR,
+        "./chroma_db",
+        "../chroma_db",
+        "chroma_db",
+    ]
+    for path in possible_paths:
+        if os.path.exists(path):
+            return True
+    return False
 
 
 def _get_collection():
-    """Lazy-load the ChromaDB collection."""
     import chromadb
-    client = chromadb.PersistentClient(path=CHROMA_PERSIST_DIR)
+    import os
+    
+    # Find the correct chroma_db path
+    possible_paths = [
+        CHROMA_PERSIST_DIR,
+        "./chroma_db",
+        "../chroma_db", 
+        "chroma_db",
+    ]
+    
+    db_path = CHROMA_PERSIST_DIR
+    for path in possible_paths:
+        if os.path.exists(path):
+            db_path = path
+            break
+    
+    client = chromadb.PersistentClient(path=db_path)
     return client.get_or_create_collection("job_descriptions")
-
 
 def _get_embedder():
     from sentence_transformers import SentenceTransformer

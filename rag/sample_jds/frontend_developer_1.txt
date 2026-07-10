@@ -1,0 +1,33 @@
+Frontend Developer
+
+Join our team as a Frontend Developer to build exceptional user experiences.
+
+Requirements:
+- 2+ years of experience in frontend development
+- Strong proficiency in React.js
+- Solid understanding of JavaScript ES6+
+- Experience with TypeScript
+- Proficiency in HTML5 and CSS3
+- Experience with state management (Redux, Context API)
+- Knowledge of responsive design and CSS frameworks (Tailwind, Bootstrap)
+- Familiarity with REST APIs and GraphQL
+- Experience with Git and version control
+- Understanding of web performance optimization
+- Knowledge of testing frameworks (Jest, React Testing Library)
+
+Nice to have:
+- Experience with Next.js or Gatsby
+- Knowledge of Vue.js or Angular
+- Familiarity with React Native for mobile development
+- Experience with animation libraries (Framer Motion, GSAP)
+- Knowledge of webpack and build tools
+- Experience with Figma or design tools
+- Understanding of accessibility standards (WCAG)
+
+Responsibilities:
+- Build responsive and interactive user interfaces
+- Collaborate with UX designers to implement designs
+- Optimize application performance
+- Write unit and integration tests
+- Participate in code reviews
+- Work with backend developers to integrate APIs

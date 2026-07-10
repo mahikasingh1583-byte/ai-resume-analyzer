@@ -1,0 +1,31 @@
+DevOps Engineer
+
+We are looking for a DevOps Engineer to streamline our development and deployment processes.
+
+Requirements:
+- 3+ years of DevOps or Site Reliability Engineering experience
+- Strong experience with Docker and Kubernetes
+- Proficiency with AWS, Azure, or GCP
+- Experience with CI/CD pipelines (Jenkins, GitHub Actions, GitLab CI)
+- Knowledge of Infrastructure as Code (Terraform, Ansible)
+- Strong Linux/Unix administration skills
+- Experience with monitoring tools (Prometheus, Grafana, ELK Stack)
+- Scripting skills in Python, Bash, or Go
+- Knowledge of networking concepts (DNS, TCP/IP, load balancing)
+- Experience with Git and version control workflows
+
+Nice to have:
+- Kubernetes certification (CKA or CKAD)
+- AWS certification (Solutions Architect or DevOps Engineer)
+- Experience with service mesh (Istio)
+- Knowledge of security practices (DevSecOps)
+- Experience with Helm charts
+- Familiarity with cloud cost optimization
+
+Responsibilities:
+- Design and maintain CI/CD pipelines
+- Manage cloud infrastructure and Kubernetes clusters
+- Implement monitoring and alerting systems
+- Automate repetitive operational tasks
+- Ensure system reliability and uptime
+- Collaborate with development teams on deployment strategies

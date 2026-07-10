@@ -1,0 +1,29 @@
+UI/UX Designer
+
+About Us:
+We design tools that help creative teams collaborate more effectively. We're looking for a UI/UX Designer to help shape the next generation of our product.
+
+Responsibilities:
+- Design intuitive, accessible user interfaces for web and mobile
+- Conduct user research and usability testing to validate design decisions
+- Create wireframes, prototypes, and high-fidelity mockups in Figma
+- Collaborate closely with product managers and engineers throughout the design process
+- Maintain and evolve our design system
+
+Requirements:
+- 3+ years of experience in UI/UX design for digital products
+- Strong portfolio demonstrating end-to-end design process
+- Proficiency in Figma (component libraries, auto-layout, prototyping)
+- Solid understanding of accessibility standards (WCAG)
+- Experience conducting user research and synthesizing findings
+
+Preferred Qualifications:
+- Experience with design systems at scale
+- Basic understanding of HTML/CSS to collaborate effectively with engineers
+- Experience with motion design or interactive prototyping tools
+
+Benefits:
+- Remote-friendly (with quarterly team meetups)
+- Health/dental/vision coverage
+- $1,000 annual creative tools/software budget
+- Flexible working hours

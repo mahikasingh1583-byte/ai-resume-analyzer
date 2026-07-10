@@ -1,0 +1,31 @@
+Data Engineer
+
+We are hiring a Data Engineer to build and maintain our data infrastructure.
+
+Requirements:
+- 3+ years of data engineering experience
+- Strong SQL and Python skills
+- Experience with data pipeline tools (Apache Airflow, Prefect, Luigi)
+- Knowledge of big data technologies (Apache Spark, Hadoop)
+- Experience with data warehousing (Snowflake, BigQuery, Redshift)
+- Familiarity with streaming data (Apache Kafka, Kinesis)
+- Knowledge of dbt for data transformation
+- Experience with cloud data platforms (AWS, GCP, Azure)
+- Understanding of data modeling and schema design
+- Experience with ETL/ELT pipeline development
+
+Nice to have:
+- Experience with real-time data processing
+- Knowledge of data lake architectures (Delta Lake, Iceberg)
+- Familiarity with data governance and cataloging
+- Experience with Databricks
+- Knowledge of data quality frameworks
+- Familiarity with ML feature stores
+
+Responsibilities:
+- Design and build scalable data pipelines
+- Maintain and optimize data warehouse infrastructure
+- Ensure data quality and reliability
+- Collaborate with data scientists and analysts
+- Build monitoring and alerting for data pipelines
+- Document data models and pipeline architecture

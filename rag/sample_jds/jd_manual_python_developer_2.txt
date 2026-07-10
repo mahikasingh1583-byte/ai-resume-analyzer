@@ -1,0 +1,30 @@
+Python Developer (Mid-Level)
+
+Company Overview:
+We're a fast-growing fintech startup building tools that help small businesses manage cash flow. Our engineering team is small, fast-moving, and values clean code over clever code.
+
+What You'll Do:
+- Build and maintain backend services in Python using Django REST Framework
+- Design and optimize PostgreSQL schemas for transactional data
+- Write and maintain unit/integration tests (pytest)
+- Work closely with product and design to ship features end-to-end
+- Participate in on-call rotation for production support
+
+What We're Looking For:
+- 3-5 years of professional Python development experience
+- Strong experience with Django or FastAPI
+- Solid understanding of relational databases (PostgreSQL preferred)
+- Experience with REST API design and versioning
+- Comfortable with Git-based workflows and code review culture
+- Familiarity with Docker and basic CI/CD concepts
+
+Nice to Have:
+- Experience with Celery or other async task queues
+- Exposure to AWS (RDS, EC2, S3)
+- Experience in a regulated industry (fintech, healthtech)
+
+What We Offer:
+- Competitive salary + equity
+- Remote-first culture with quarterly team offsites
+- Health, dental, and vision coverage
+- $1,500 annual learning stipend

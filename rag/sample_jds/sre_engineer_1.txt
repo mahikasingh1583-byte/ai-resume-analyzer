@@ -1,0 +1,31 @@
+Site Reliability Engineer
+
+We are seeking an SRE to ensure reliability and scalability of our systems.
+
+Requirements:
+- 3+ years of SRE or DevOps experience
+- Strong software engineering skills (Python, Go, or Java)
+- Experience with Kubernetes and container orchestration
+- Knowledge of cloud platforms (AWS, GCP, or Azure)
+- Experience with observability tools (Prometheus, Grafana, Jaeger)
+- Familiarity with incident management and on-call processes
+- Knowledge of SLIs, SLOs, and error budgets
+- Experience with chaos engineering principles
+- Strong understanding of distributed systems
+- Experience with capacity planning and performance tuning
+
+Nice to have:
+- Experience with service mesh (Istio, Linkerd)
+- Knowledge of eBPF for performance monitoring
+- Familiarity with AIOps tools
+- Experience with multi-region deployments
+- Knowledge of database reliability patterns
+- Experience with post-mortem facilitation
+
+Responsibilities:
+- Maintain and improve system reliability and uptime
+- Build and maintain monitoring and alerting systems
+- Respond to and resolve production incidents
+- Conduct post-mortems and drive improvements
+- Automate operational tasks to reduce toil
+- Collaborate with developers on reliability best practices

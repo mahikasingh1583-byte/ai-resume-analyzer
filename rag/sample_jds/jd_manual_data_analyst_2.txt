@@ -1,0 +1,29 @@
+Data Analyst
+
+Job Summary:
+We're looking for a Data Analyst to join our growing analytics team. You'll partner closely with marketing, product, and finance teams to turn raw data into actionable insight.
+
+Key Responsibilities:
+- Build and maintain dashboards in Tableau/Looker to track key business metrics
+- Write complex SQL queries to extract and analyze data from our warehouse (Snowflake)
+- Partner with stakeholders to define KPIs and reporting requirements
+- Conduct ad-hoc analysis to support product and marketing decisions
+- Identify trends, anomalies, and opportunities in large datasets
+
+Requirements:
+- 2+ years of experience in a data analyst or business analyst role
+- Strong SQL skills (window functions, CTEs, query optimization)
+- Experience with a BI tool such as Tableau, Looker, or Power BI
+- Working knowledge of Python or R for data manipulation (pandas preferred)
+- Excellent communication skills — able to explain data insights to non-technical stakeholders
+
+Preferred Qualifications:
+- Experience with dbt or other data transformation tools
+- Familiarity with A/B testing methodology and statistics
+- Bachelor's degree in Statistics, Economics, Computer Science, or related field
+
+What We Offer:
+- Hybrid work model (3 days in office)
+- Comprehensive health benefits
+- Annual performance bonus
+- Professional development budget

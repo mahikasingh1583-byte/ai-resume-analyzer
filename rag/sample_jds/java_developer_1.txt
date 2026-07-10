@@ -1,0 +1,31 @@
+Java Developer
+
+We are seeking an experienced Java Developer to build enterprise applications.
+
+Requirements:
+- 3+ years of Java development experience
+- Strong knowledge of Java 11 or higher
+- Experience with Spring Boot and Spring Framework
+- Proficiency in SQL and ORM frameworks (Hibernate, JPA)
+- Experience with microservices architecture
+- Knowledge of REST API development
+- Familiarity with Maven or Gradle build tools
+- Experience with Git and version control
+- Understanding of design patterns and SOLID principles
+- Experience with unit testing (JUnit, Mockito)
+
+Nice to have:
+- Experience with Kafka for event streaming
+- Knowledge of Docker and Kubernetes
+- Familiarity with cloud platforms (AWS, Azure)
+- Experience with reactive programming (Spring WebFlux)
+- Knowledge of NoSQL databases
+- Experience with Elasticsearch
+
+Responsibilities:
+- Design and develop Java-based enterprise applications
+- Build and maintain REST APIs
+- Write clean testable and maintainable code
+- Participate in code reviews and architecture discussions
+- Optimize application performance
+- Collaborate with frontend and DevOps teams

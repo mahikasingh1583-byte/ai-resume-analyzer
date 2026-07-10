@@ -1,8 +1,7 @@
 from __future__ import annotations
 
-# ── Hardcoded for now — move to .env once confirmed working ──
 import os
-GROQ_API_KEY = os.getenv("OPENAI_API_KEY", "")
+GROQ_API_KEY = os.getenv("OPENAI_API_KEY")
 GROQ_MODEL   = "llama-3.1-8b-instant"
 
 def ask_llm(
@@ -20,8 +19,6 @@ def ask_llm(
 
 def _call_groq(prompt, system, history, max_tokens, model):
     from openai import OpenAI
-    print("API Key:", GROQ_API_KEY[:10])
-    print("Key Length:", len(GROQ_API_KEY))
 
     client = OpenAI(
         api_key=GROQ_API_KEY,

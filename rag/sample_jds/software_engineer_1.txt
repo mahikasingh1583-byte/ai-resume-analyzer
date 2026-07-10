@@ -1,0 +1,31 @@
+Software Engineer
+
+We are seeking a Software Engineer to build high-quality software solutions.
+
+Requirements:
+- 2+ years of software engineering experience
+- Strong proficiency in one or more languages (Java, Python, C++, Go)
+- Experience with data structures and algorithms
+- Knowledge of object-oriented and functional programming
+- Experience with Git and version control
+- Understanding of software design patterns
+- Familiarity with Agile and Scrum methodologies
+- Experience with unit testing and TDD
+- Basic knowledge of databases (SQL and NoSQL)
+- Strong problem-solving skills
+
+Nice to have:
+- Experience with system design
+- Knowledge of cloud platforms
+- Familiarity with Docker and Kubernetes
+- Experience with distributed systems
+- Knowledge of performance profiling and optimization
+- Open source contributions
+
+Responsibilities:
+- Design develop and maintain software applications
+- Write clean well-documented and tested code
+- Participate in code reviews and technical discussions
+- Collaborate with cross-functional teams
+- Debug and resolve software defects
+- Contribute to technical documentation

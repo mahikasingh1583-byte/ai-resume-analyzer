@@ -1,0 +1,31 @@
+AI Engineer
+
+We are looking for an AI Engineer to build next-generation AI applications.
+
+Requirements:
+- 2+ years of AI or LLM application development experience
+- Strong Python programming skills
+- Experience with LLM APIs (OpenAI, Anthropic, Groq)
+- Knowledge of prompt engineering and prompt optimization
+- Experience building RAG pipelines (LangChain, LlamaIndex)
+- Familiarity with vector databases (Pinecone, ChromaDB, Weaviate)
+- Understanding of embedding models and semantic search
+- Experience with multi-agent frameworks (CrewAI, AutoGen)
+- Knowledge of LLM fine-tuning techniques
+- Experience deploying AI applications to production
+
+Nice to have:
+- Experience with Hugging Face transformers
+- Knowledge of RLHF and alignment techniques
+- Familiarity with LangSmith or similar observability tools
+- Experience with function calling and tool use
+- Knowledge of open-source LLMs (Llama, Mistral)
+- Experience with Streamlit or Gradio for AI demos
+
+Responsibilities:
+- Design and build LLM-powered applications
+- Implement RAG systems for knowledge retrieval
+- Build multi-agent workflows for complex tasks
+- Evaluate and improve AI system performance
+- Stay current with rapidly evolving AI landscape
+- Collaborate with product teams on AI feature development

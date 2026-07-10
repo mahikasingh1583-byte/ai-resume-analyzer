@@ -1,0 +1,31 @@
+Backend Developer
+
+We are hiring a Backend Developer to build robust server-side applications.
+
+Requirements:
+- 3+ years of backend development experience
+- Strong proficiency in Java, Python, or Node.js
+- Experience with Spring Boot, Django, or Express.js
+- Solid database skills (PostgreSQL, MySQL, MongoDB)
+- Experience designing and building REST APIs
+- Knowledge of caching strategies (Redis, Memcached)
+- Familiarity with message queues (Kafka, RabbitMQ)
+- Understanding of microservices architecture
+- Experience with Docker and containerization
+- Knowledge of AWS or Azure cloud services
+
+Nice to have:
+- Experience with GraphQL
+- Knowledge of gRPC
+- Familiarity with Elasticsearch
+- Experience with event-driven architecture
+- Knowledge of API security (OAuth, JWT)
+- Experience with performance optimization
+
+Responsibilities:
+- Design and develop scalable backend services
+- Build and maintain REST and GraphQL APIs
+- Optimize database queries and application performance
+- Write comprehensive unit and integration tests
+- Collaborate with frontend teams on API contracts
+- Participate in system design and architecture reviews

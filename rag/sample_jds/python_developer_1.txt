@@ -1,0 +1,30 @@
+Python Developer
+
+We are looking for an experienced Python Developer to join our engineering team.
+
+Requirements:
+- 2+ years of experience with Python
+- Strong knowledge of Django or Flask frameworks
+- Experience with REST API development
+- Proficiency in SQL and database design (PostgreSQL, MySQL)
+- Familiarity with Git and version control
+- Experience with Docker and containerization
+- Knowledge of AWS or GCP cloud platforms
+- Understanding of CI/CD pipelines
+- Experience with unit testing and pytest
+- Strong problem-solving skills
+
+Nice to have:
+- Experience with FastAPI
+- Knowledge of Redis and caching strategies
+- Familiarity with Kubernetes
+- Experience with microservices architecture
+- Knowledge of message queues (RabbitMQ, Kafka)
+
+Responsibilities:
+- Design and develop scalable Python applications
+- Write clean, maintainable, and well-documented code
+- Collaborate with frontend developers and designers
+- Participate in code reviews
+- Optimize application performance
+- Maintain and improve existing codebase

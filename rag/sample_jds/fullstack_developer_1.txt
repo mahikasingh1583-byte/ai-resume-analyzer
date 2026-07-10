@@ -1,0 +1,32 @@
+Full Stack Developer
+
+We need a Full Stack Developer to work across our entire technology stack.
+
+Requirements:
+- 3+ years of full stack development experience
+- Strong proficiency in React.js or Vue.js
+- Backend experience with Node.js, Python Django, or Java Spring Boot
+- Solid SQL and NoSQL database skills (PostgreSQL, MongoDB)
+- Experience with REST API design and development
+- Knowledge of Git and version control
+- Familiarity with Docker and basic DevOps concepts
+- Understanding of web security best practices
+- Experience with cloud platforms (AWS or Azure)
+- Strong problem-solving and communication skills
+
+Nice to have:
+- Experience with TypeScript
+- Knowledge of GraphQL
+- Familiarity with Redis for caching
+- Experience with message queues
+- Knowledge of microservices architecture
+- Familiarity with Agile and Scrum methodologies
+- Experience with CI/CD pipelines
+
+Responsibilities:
+- Develop and maintain frontend and backend features
+- Design database schemas and data models
+- Build and consume REST APIs
+- Write clean tested code
+- Collaborate with product managers and designers
+- Participate in architecture discussions

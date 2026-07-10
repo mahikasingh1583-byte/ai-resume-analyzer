@@ -1,0 +1,31 @@
+Network Engineer
+
+We need a Network Engineer to design and manage our network infrastructure.
+
+Requirements:
+- 3+ years of network engineering experience
+- Strong knowledge of networking protocols (TCP/IP, BGP, OSPF, MPLS)
+- Experience with Cisco or Juniper network equipment
+- Knowledge of network security (firewalls, VPN, IDS/IPS)
+- Experience with SD-WAN solutions
+- Familiarity with wireless networking (WiFi 6, 802.11)
+- Knowledge of network monitoring tools (SolarWinds, Wireshark)
+- Experience with load balancers (F5, Nginx)
+- Understanding of cloud networking (AWS VPC, Azure VNet)
+- CCNA or CCNP certification preferred
+
+Nice to have:
+- Experience with network automation (Python, Ansible)
+- Knowledge of SDN concepts
+- Familiarity with IPv6 deployment
+- Experience with VoIP systems
+- Knowledge of MPLS and QoS
+- CCIE certification
+
+Responsibilities:
+- Design and implement network architecture
+- Monitor network performance and troubleshoot issues
+- Configure and maintain network equipment
+- Implement network security policies
+- Plan and execute network upgrades
+- Document network topology and configurations

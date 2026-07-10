@@ -1,0 +1,31 @@
+System Administrator
+
+We are looking for a System Administrator to manage our IT infrastructure.
+
+Requirements:
+- 3+ years of system administration experience
+- Strong Linux and Windows Server administration skills
+- Experience with virtualization (VMware, Hyper-V)
+- Knowledge of networking (DNS, DHCP, VPN, firewalls)
+- Experience with Active Directory and LDAP
+- Familiarity with backup and disaster recovery solutions
+- Knowledge of scripting (Bash, PowerShell, Python)
+- Experience with monitoring tools (Nagios, Zabbix, Grafana)
+- Understanding of IT security practices
+- Experience with patch management
+
+Nice to have:
+- Experience with cloud platforms (AWS, Azure)
+- Knowledge of containerization (Docker)
+- Familiarity with configuration management (Ansible, Chef)
+- Experience with storage systems (SAN, NAS)
+- Knowledge of ITIL framework
+- Microsoft or Linux certifications
+
+Responsibilities:
+- Manage and maintain server infrastructure
+- Monitor system performance and availability
+- Handle user account management and access control
+- Implement security patches and updates
+- Troubleshoot hardware and software issues
+- Maintain documentation of systems and procedures

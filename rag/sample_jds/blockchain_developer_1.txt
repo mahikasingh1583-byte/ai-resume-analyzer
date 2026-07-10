@@ -1,0 +1,31 @@
+Blockchain Developer
+
+Join our Web3 team to build decentralized applications and smart contracts.
+
+Requirements:
+- 2+ years of blockchain development experience
+- Strong knowledge of Solidity and smart contract development
+- Experience with Ethereum or other EVM-compatible chains
+- Familiarity with Web3.js or Ethers.js
+- Knowledge of DeFi protocols and tokenomics
+- Experience with Hardhat or Truffle development frameworks
+- Understanding of cryptography fundamentals
+- Knowledge of IPFS and decentralized storage
+- Experience with wallet integration (MetaMask)
+- Strong security mindset for smart contract auditing
+
+Nice to have:
+- Experience with Layer 2 solutions (Polygon, Arbitrum)
+- Knowledge of NFT standards (ERC-721, ERC-1155)
+- Familiarity with cross-chain bridges
+- Experience with Rust for Solana development
+- Knowledge of DAO governance mechanisms
+- Experience with blockchain analytics tools
+
+Responsibilities:
+- Write and audit smart contracts
+- Build decentralized applications (dApps)
+- Integrate blockchain functionality with frontend
+- Conduct security reviews of smart contracts
+- Stay current with blockchain ecosystem developments
+- Collaborate with tokenomics and product teams

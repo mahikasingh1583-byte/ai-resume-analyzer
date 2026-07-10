@@ -1,0 +1,29 @@
+React Frontend Developer
+
+About Us:
+We build a SaaS platform used by over 200,000 small businesses to manage their online storefronts. Our frontend is entirely React/TypeScript, and we care deeply about performance and accessibility.
+
+What You'll Do:
+- Build responsive, accessible UI components in React and TypeScript
+- Collaborate with designers to translate Figma mockups into pixel-perfect interfaces
+- Optimize application performance (bundle size, rendering, lazy loading)
+- Write unit and integration tests using Jest and React Testing Library
+- Participate in code reviews and help maintain our component library
+
+Requirements:
+- 3+ years of experience with React in a production environment
+- Strong proficiency in TypeScript
+- Experience with state management (Redux, Zustand, or React Query)
+- Solid understanding of CSS, responsive design, and cross-browser compatibility
+- Experience with modern build tools (Vite or Webpack)
+
+Nice to Have:
+- Experience with Next.js
+- Familiarity with design systems and Storybook
+- Basic understanding of backend REST APIs
+
+Benefits:
+- Remote-friendly (US timezones)
+- Unlimited PTO
+- Home office stipend
+- Health/dental/vision covered 100% for employees

@@ -1,0 +1,29 @@
+Product Manager (B2B SaaS)
+
+About the Role:
+We're hiring a Product Manager to own the roadmap for one of our core product lines. You'll work closely with engineering, design, and customer success to ship features that solve real customer problems.
+
+Responsibilities:
+- Define and prioritize product roadmap based on customer feedback and business goals
+- Write clear product requirements and user stories
+- Partner with engineering and design throughout the development lifecycle
+- Analyze product usage data to identify opportunities for improvement
+- Communicate roadmap and progress to stakeholders and leadership
+
+Requirements:
+- 3+ years of product management experience, ideally in B2B SaaS
+- Strong analytical skills; comfortable working with SQL and product analytics tools (Amplitude, Mixpanel)
+- Excellent written and verbal communication skills
+- Experience running user research and translating insights into requirements
+- Ability to balance technical constraints with business priorities
+
+Preferred:
+- Experience with Agile/Scrum methodologies
+- Background in a technical role (engineering, data) prior to PM
+- Experience with tools like Jira, Productboard, or Linear
+
+What We Offer:
+- Competitive salary + equity
+- Remote-first culture
+- Flexible PTO
+- Annual company retreat

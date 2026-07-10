@@ -1,0 +1,31 @@
+Computer Vision Engineer
+
+We are hiring a Computer Vision Engineer to build visual AI systems.
+
+Requirements:
+- 3+ years of computer vision experience
+- Strong Python programming skills
+- Experience with OpenCV and image processing
+- Deep knowledge of CNN architectures (ResNet, YOLO, EfficientNet)
+- Experience with PyTorch or TensorFlow for vision tasks
+- Knowledge of object detection, segmentation, and classification
+- Familiarity with data augmentation techniques
+- Experience with model optimization (quantization, pruning)
+- Understanding of camera systems and image acquisition
+- Experience with annotation tools and dataset creation
+
+Nice to have:
+- Experience with 3D vision and point clouds
+- Knowledge of video understanding models
+- Familiarity with edge deployment (NVIDIA Jetson, OpenVINO)
+- Experience with medical imaging
+- Knowledge of generative models (GANs, Diffusion)
+- Experience with AR/VR applications
+
+Responsibilities:
+- Design and implement computer vision pipelines
+- Train and evaluate vision models
+- Optimize models for production deployment
+- Collaborate with hardware and robotics teams
+- Build data collection and annotation workflows
+- Research and apply latest computer vision techniques

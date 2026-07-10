@@ -1,0 +1,31 @@
+Product Manager
+
+We are seeking a Product Manager to lead the development of our core products.
+
+Requirements:
+- 3+ years of product management experience
+- Strong analytical and data-driven decision-making skills
+- Experience with product roadmap planning and prioritization
+- Knowledge of Agile and Scrum methodologies
+- Excellent communication and stakeholder management skills
+- Experience with user research and customer discovery
+- Familiarity with product analytics tools (Mixpanel, Amplitude, Google Analytics)
+- Understanding of software development processes
+- Experience writing detailed product requirements and user stories
+- Strong leadership and cross-functional collaboration skills
+
+Nice to have:
+- Technical background in software engineering
+- Experience with A/B testing platforms
+- Knowledge of UX design principles
+- Familiarity with SQL for data analysis
+- Experience with project management tools (Jira, Asana, Linear)
+- MBA or relevant advanced degree
+
+Responsibilities:
+- Define product vision strategy and roadmap
+- Gather and prioritize product requirements from stakeholders
+- Work closely with engineering and design teams
+- Analyze product metrics and user feedback
+- Drive product launches and go-to-market strategies
+- Communicate product updates to leadership and teams

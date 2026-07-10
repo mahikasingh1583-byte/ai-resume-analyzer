@@ -1,0 +1,31 @@
+Scrum Master
+
+We are looking for an experienced Scrum Master to lead our Agile teams.
+
+Requirements:
+- 2+ years of Scrum Master experience
+- Certified Scrum Master (CSM or PSM) certification
+- Strong knowledge of Agile and Scrum methodologies
+- Experience facilitating sprint planning, retrospectives, and daily standups
+- Ability to remove impediments and coach teams
+- Experience with project management tools (Jira, Confluence, Trello)
+- Strong communication and leadership skills
+- Knowledge of Kanban and Lean principles
+- Experience working with distributed teams
+- Understanding of software development processes
+
+Nice to have:
+- SAFe Agile certification
+- Experience with multiple Agile frameworks (XP, Crystal)
+- Knowledge of DevOps practices
+- Experience coaching leadership on Agile transformation
+- Familiarity with OKRs and goal-setting frameworks
+- Technical background in software development
+
+Responsibilities:
+- Facilitate Agile ceremonies and events
+- Coach team members on Scrum practices
+- Remove blockers and impediments for the team
+- Track and report sprint metrics and velocity
+- Support product owner in backlog refinement
+- Drive continuous improvement initiatives

@@ -1,28 +1,14 @@
-"""ui/theme.py — theme variables and CSS injection."""
+"""ui/theme.py — CSS injection driven by the currently selected theme dict."""
 
 import streamlit as st
 
 
-def theme_vars(dark: bool) -> dict:
-    if dark:
-        return {
-            "bg":     "linear-gradient(135deg, #0F172A 0%, #1E1B4B 50%, #312E81 100%)",
-            "card":   "rgba(30,27,75,0.85)",
-            "text":   "#F1F5F9",
-            "title":  "#A5B4FC",
-            "border": "rgba(165,180,252,0.3)",
-        }
-    return {
-        "bg":     "linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 50%, #C7D2FE 100%)",
-        "card":   "rgba(255,255,255,0.85)",
-        "text":   "#1F2937",
-        "title":  "#4338CA",
-        "border": "rgba(99,102,241,0.25)",
-    }
-
-
-def apply_theme(dark: bool) -> None:
-    tv = theme_vars(dark)
+def apply_theme(tv: dict) -> None:
+    """
+    tv must contain: bg, card, text, title, border
+    (this is what ui.sidebar.get_current_theme() returns)
+    """
+    dark = st.session_state.get("dark_mode", False)
 
     # These change based on dark/light mode
     uploader_inner = "#1E1B4B" if dark else "#F8F9FF"
@@ -66,14 +52,14 @@ def apply_theme(dark: bool) -> None:
 
 /* ── File uploader outer box ── */
 div[data-testid="stFileUploader"] {{
-    border:2px dashed #6366F1 !important;
+    border:2px dashed {tv["title"]} !important;
     border-radius:15px !important;
     padding:15px !important;
     background:{tv["card"]} !important;
     transition:all .3s ease;
 }}
 div[data-testid="stFileUploader"]:hover {{
-    box-shadow:0px 10px 25px rgba(99,102,241,0.2);
+    box-shadow:0px 10px 25px {tv["border"]};
 }}
 
 /* ── File uploader inner box (the white box) ── */
@@ -104,12 +90,12 @@ div[data-testid="stFileUploader"] small {{
 /* ── Buttons ── */
 .stButton button {{
     width:100%;height:3.2rem;border-radius:12px;border:none;
-    background:linear-gradient(90deg,#4F46E5,#7C3AED);
+    background:linear-gradient(90deg,{tv["title"]},{tv["border"]});
     color:white !important;font-size:16px;font-weight:bold;transition:.3s;
 }}
 .stButton button:hover {{
     transform:translateY(-3px);
-    box-shadow:0 10px 25px rgba(79,70,229,.4);
+    box-shadow:0 10px 25px {tv["border"]};
 }}
 .stDownloadButton button {{width:100%;border-radius:12px;}}
 

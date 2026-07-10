@@ -1,0 +1,30 @@
+Data Scientist
+
+We are seeking a talented Data Scientist to extract insights from complex datasets.
+
+Requirements:
+- 3+ years of experience in data science or machine learning
+- Strong proficiency in Python (Pandas, NumPy, Scikit-learn)
+- Experience with machine learning algorithms (regression, classification, clustering)
+- Knowledge of deep learning frameworks (TensorFlow or PyTorch)
+- Strong SQL skills for data extraction and manipulation
+- Experience with data visualization tools (Matplotlib, Seaborn, Tableau)
+- Familiarity with statistical analysis and hypothesis testing
+- Experience with Jupyter Notebooks
+- Knowledge of feature engineering and model evaluation
+- Strong communication skills to present findings to stakeholders
+
+Nice to have:
+- Experience with NLP and text processing
+- Knowledge of computer vision
+- Experience with MLflow or similar MLOps tools
+- Familiarity with Spark for big data processing
+- Knowledge of A/B testing methodologies
+- Experience with cloud ML platforms (AWS SageMaker, GCP Vertex AI)
+
+Responsibilities:
+- Build and deploy machine learning models
+- Analyze large datasets to identify trends and patterns
+- Create data pipelines for model training
+- Collaborate with engineering teams to productionize models
+- Present insights and recommendations to business stakeholders

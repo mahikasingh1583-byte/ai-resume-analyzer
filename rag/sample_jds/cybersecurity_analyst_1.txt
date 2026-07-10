@@ -1,0 +1,31 @@
+Cybersecurity Analyst
+
+We are seeking a Cybersecurity Analyst to protect our organization's digital assets.
+
+Requirements:
+- 2+ years of experience in cybersecurity or information security
+- Knowledge of network security protocols (TCP/IP, DNS, SSL/TLS)
+- Experience with SIEM tools (Splunk, IBM QRadar, Microsoft Sentinel)
+- Understanding of cybersecurity frameworks (NIST, ISO 27001, CIS)
+- Experience with vulnerability assessment tools (Nessus, OpenVAS)
+- Knowledge of penetration testing concepts
+- Familiarity with incident response procedures
+- Understanding of firewall management and intrusion detection systems
+- Knowledge of threat intelligence platforms
+- Security certifications preferred (CompTIA Security+, CEH, CISSP)
+
+Nice to have:
+- Experience with cloud security (AWS Security, Azure Security Center)
+- Knowledge of OWASP Top 10
+- Familiarity with digital forensics tools
+- Experience with SOC operations
+- Knowledge of malware analysis
+- Experience with Python for security automation
+
+Responsibilities:
+- Monitor security systems for threats and vulnerabilities
+- Conduct vulnerability assessments and penetration tests
+- Respond to security incidents and breaches
+- Develop security policies and procedures
+- Perform security audits and compliance checks
+- Train staff on cybersecurity best practices

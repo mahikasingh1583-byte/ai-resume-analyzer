@@ -1,0 +1,31 @@
+Database Administrator
+
+We need a Database Administrator to manage and optimize our database systems.
+
+Requirements:
+- 3+ years of database administration experience
+- Expert knowledge of PostgreSQL and MySQL
+- Experience with NoSQL databases (MongoDB, Cassandra, Redis)
+- Strong SQL skills including query optimization
+- Knowledge of database backup and recovery procedures
+- Experience with database performance tuning and indexing
+- Familiarity with replication and high availability setups
+- Understanding of database security and access control
+- Experience with cloud databases (AWS RDS, Azure SQL)
+- Knowledge of ETL processes and data migration
+
+Nice to have:
+- Experience with NewSQL databases (CockroachDB, TiDB)
+- Knowledge of time-series databases (InfluxDB, TimescaleDB)
+- Familiarity with database monitoring tools
+- Experience with database sharding strategies
+- Knowledge of data warehousing (Snowflake, Redshift)
+- Oracle or Microsoft SQL Server experience
+
+Responsibilities:
+- Manage and maintain database systems
+- Optimize query performance and database schemas
+- Implement backup and disaster recovery procedures
+- Monitor database health and performance
+- Manage database security and user access
+- Support data migration and upgrade projects

@@ -1,0 +1,31 @@
+QA Engineer
+
+We are looking for a QA Engineer to ensure the quality of our software products.
+
+Requirements:
+- 2+ years of software testing experience
+- Experience with manual and automated testing
+- Proficiency with test automation tools (Selenium, Cypress, Playwright)
+- Knowledge of API testing tools (Postman, REST Assured)
+- Experience with test management tools (Jira, TestRail)
+- Understanding of software development lifecycle
+- Knowledge of testing methodologies (unit, integration, regression, performance)
+- Experience with CI/CD integration for automated tests
+- Basic programming skills in Python or JavaScript
+- Strong attention to detail and analytical skills
+
+Nice to have:
+- Experience with performance testing tools (JMeter, k6)
+- Knowledge of mobile testing
+- Familiarity with security testing concepts
+- Experience with BDD frameworks (Cucumber, Behave)
+- Knowledge of load testing strategies
+- ISTQB certification
+
+Responsibilities:
+- Design and execute test plans and test cases
+- Build and maintain automated test suites
+- Identify report and track software defects
+- Collaborate with developers to ensure quality
+- Participate in sprint planning and reviews
+- Contribute to CI/CD pipeline test automation

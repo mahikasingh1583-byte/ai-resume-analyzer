@@ -1,0 +1,31 @@
+Embedded Systems Engineer
+
+Join our hardware team to develop firmware and embedded software.
+
+Requirements:
+- 3+ years of embedded systems development experience
+- Strong C and C++ programming skills
+- Experience with microcontrollers (ARM Cortex, STM32, ESP32)
+- Knowledge of RTOS (FreeRTOS, Zephyr)
+- Experience with communication protocols (UART, SPI, I2C, CAN)
+- Familiarity with PCB design and schematic reading
+- Knowledge of debugging tools (JTAG, oscilloscopes, logic analyzers)
+- Experience with bootloader development
+- Understanding of memory management in embedded systems
+- Knowledge of low-power design techniques
+
+Nice to have:
+- Experience with Linux kernel development
+- Knowledge of wireless protocols (BLE, WiFi, LoRa)
+- Familiarity with AUTOSAR for automotive applications
+- Experience with hardware bring-up
+- Knowledge of safety standards (IEC 61508, ISO 26262)
+- Experience with FPGA development (VHDL, Verilog)
+
+Responsibilities:
+- Develop firmware for embedded hardware platforms
+- Implement and optimize device drivers
+- Collaborate with hardware engineers during board bring-up
+- Debug and resolve hardware-software interface issues
+- Write technical documentation for firmware systems
+- Conduct code reviews and ensure coding standards

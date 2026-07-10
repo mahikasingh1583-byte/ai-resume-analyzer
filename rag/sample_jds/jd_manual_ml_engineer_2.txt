@@ -1,0 +1,29 @@
+Machine Learning Engineer
+
+About the Team:
+Our ML team builds and deploys models that power personalized recommendations for over 5 million active users. We're looking for an ML Engineer to help take models from prototype to production.
+
+Responsibilities:
+- Build, train, and deploy machine learning models at scale
+- Design and maintain data pipelines for model training (Airflow)
+- Collaborate with data scientists to productionize research models
+- Monitor model performance in production and implement retraining pipelines
+- Optimize inference latency for real-time serving
+
+Requirements:
+- 3+ years of experience building and deploying ML models in production
+- Strong Python skills, including experience with PyTorch or TensorFlow
+- Experience with ML pipeline tools (MLflow, Kubeflow, or similar)
+- Solid understanding of software engineering best practices (testing, CI/CD)
+- Experience with cloud ML infrastructure (AWS SageMaker, GCP Vertex AI)
+
+Nice to Have:
+- Experience with recommendation systems or ranking models
+- Familiarity with feature stores (Feast, Tecton)
+- Experience with LLMs or vector databases
+
+Compensation & Benefits:
+- $130,000-$175,000 base salary
+- Equity compensation
+- Remote-first with quarterly in-person summits
+- Full health benefits + 401(k) matching

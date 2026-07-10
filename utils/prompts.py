@@ -40,30 +40,50 @@ Resume:
 
 Write your analysis using EXACTLY this Markdown structure:
 
+Write your analysis using EXACTLY this Markdown structure.
+Use proper markdown — each bullet point on its OWN line with a blank line between them.
+
 ### ✅ Strengths
-4-5 bullets referencing specific resume lines and why they work for THIS role.
+
+- **Point 1 title**: Explanation here referencing specific resume line and why it works for THIS role.
+
+- **Point 2 title**: Explanation here.
+
+- **Point 3 title**: Explanation here.
 
 ### ⚠️ Weaknesses (Detailed)
-5-7 bullets. For EACH:
-- Quote or closely reference the exact line/section.
-- Explain precisely why it's a problem.
-- Tag severity as **[Critical]**, **[Moderate]**, or **[Minor]**.
-Cover DIFFERENT categories: content/impact, quantification, structure, ATS-readability, JD relevance.
+
+- **[Critical] Point 1**: Quote the exact weak line. Explain precisely why it's a problem.
+
+- **[Moderate] Point 2**: Quote the exact weak line. Explain precisely why it's a problem.
+
+- **[Minor] Point 3**: Quote the exact weak line. Explain precisely why it's a problem.
 
 ### 🎯 Recommendations (Before → After)
-4-5 rewrites of the most critical weaknesses:
-**Before:** original weak line (quoted)
-**After:** stronger version using the same facts — never invent experience
-One line explaining why the After is stronger.
+
+- **Before:** original weak line
+  **After:** stronger rewritten version
+  **Why:** one line explaining improvement
 
 ### 📋 ATS & Formatting Check
-3-4 bullets on ATS-parseability: section headers, date formats, keyword placement, length.
+
+- Point 1 about ATS parseability.
+
+- Point 2 about formatting.
 
 ### 💡 Closing the Skill Gaps
-For each missing skill: one specific, actionable line (course, project idea, certification, reframe).
+
+- **Skill name**: specific actionable advice.
 
 ### 🎤 Likely Interview Questions
-5 tailored questions referencing actual resume content and the missing skills.
+
+1. Question one?
+
+2. Question two?
+
+3. Question three?
+
+Rules: Each bullet on its OWN line. Never combine multiple points in one paragraph. Do not invent facts.
 
 Rules: Do not invent facts. Reference the resume's actual content throughout.
 """

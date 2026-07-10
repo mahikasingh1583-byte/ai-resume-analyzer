@@ -1,0 +1,32 @@
+Machine Learning Engineer
+
+Join our AI team to build and deploy production ML systems.
+
+Requirements:
+- 3+ years of machine learning engineering experience
+- Strong Python programming skills
+- Experience with PyTorch or TensorFlow
+- Knowledge of MLOps practices and tools (MLflow, Kubeflow, SageMaker)
+- Experience with model deployment and serving (FastAPI, TorchServe)
+- Proficiency with data processing tools (Pandas, Spark)
+- Knowledge of cloud platforms (AWS, GCP, Azure)
+- Experience with Docker and Kubernetes for ML workloads
+- Understanding of distributed training techniques
+- Strong knowledge of machine learning algorithms
+
+Nice to have:
+- Experience with LLMs and transformer models
+- Knowledge of Hugging Face ecosystem
+- Experience with RAG pipelines and vector databases
+- Familiarity with ONNX for model optimization
+- Knowledge of feature stores (Feast, Tecton)
+- Experience with A/B testing for ML models
+- Publications or open source contributions in ML
+
+Responsibilities:
+- Design and implement ML pipelines end to end
+- Deploy models to production with monitoring
+- Optimize model performance and inference speed
+- Collaborate with data scientists to productionize research
+- Build ML infrastructure and tooling
+- Ensure model reliability and accuracy in production

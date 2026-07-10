@@ -1,0 +1,31 @@
+NLP Engineer
+
+Join our AI team to build cutting-edge natural language processing systems.
+
+Requirements:
+- 3+ years of NLP engineering experience
+- Strong Python programming skills
+- Experience with transformer models (BERT, GPT, T5)
+- Knowledge of Hugging Face transformers library
+- Experience with text classification, NER, and sentiment analysis
+- Familiarity with word embeddings and semantic similarity
+- Knowledge of LLM fine-tuning techniques (LoRA, PEFT)
+- Experience with text preprocessing and data augmentation
+- Understanding of attention mechanisms and transformer architecture
+- Strong mathematical background (linear algebra, probability)
+
+Nice to have:
+- Experience with multilingual NLP
+- Knowledge of speech recognition systems
+- Familiarity with information extraction
+- Experience with knowledge graphs
+- Knowledge of question answering systems
+- Publications in NLP conferences (ACL, EMNLP, NAACL)
+
+Responsibilities:
+- Research and implement NLP models for production
+- Fine-tune and evaluate language models
+- Build text processing pipelines
+- Collaborate with ML engineers on model deployment
+- Stay current with NLP research
+- Document model performance and evaluation metrics
