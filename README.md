@@ -33,9 +33,6 @@ resume_analyzer/
 ├── rag/                    # Phase 3: RAG pipeline
 │   ├── rag_pipeline.py     # ChromaDB vector store + retrieval
 │   └── build_corpus.py     # One-time corpus builder script
-│
-└── agents/                 # Phase 4: CrewAI multi-agent pipeline
-    └── crew.py             # 5-agent crew definition
 ```
 
 ---
