@@ -132,45 +132,6 @@ streamlit run app.py
 
 ---
 
-### 🔜 Phase 4 — CrewAI Multi-Agent Pipeline
-
-**Goal:** Replace the single LLM call with 5 specialized agents that share context and produce a richer, more coherent report.
-
-**Steps:**
-```bash
-# 1. Install
-pip install crewai crewai-tools
-
-# 2. Enable in .env
-USE_CREW=true
-CREW_VERBOSE=false   # set true to watch agents reason step-by-step
-
-# 3. Re-run — analysis now uses the 5-agent pipeline
-streamlit run app.py
-```
-
-**The 5 agents:**
-| Agent | Role | Tools |
-|-------|------|-------|
-| JD Analyst | Extract structured requirements | RAG tool |
-| Resume Critic | Evidence-based weakness finder | None |
-| Market Researcher | Salary, culture, skill demand | Firecrawl search |
-| Resume Rewriter | Before/After bullet rewrites | RAG tool |
-| Interview Coach | Tailored Q&A + STAR frameworks | None |
-
-**How agents share context:**
-- `Process.sequential` — each task receives prior tasks' outputs
-- `memory=True` — agents remember context across the whole crew run
-- The Rewriter agent knows exactly what the Critic found wrong
-- The Coach knows both the JD requirements AND the candidate's gaps
-
-**Code touched:** `agents/crew.py` (already written)
-
-**Resume addition:**
-> Architected a 5-agent CrewAI pipeline with RAG-grounded JD analysis, market intelligence via Firecrawl, and LLM-driven resume rewriting — agents share sequential context producing coherent multi-perspective output
-
----
-
 ## Deployment (after Phase 1)
 
 ### Streamlit Community Cloud (free)
