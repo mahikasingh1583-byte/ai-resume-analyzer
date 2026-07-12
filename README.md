@@ -3,7 +3,13 @@
 > AI-powered resume toolkit with ATS scoring, live job scraping, RAG-grounded analysis, and LLM critique — built with Groq LLaMA 3, Firecrawl, ChromaDB, and Streamlit.
 
 <!-- Add your demo GIF here after editing your video:
-![Demo](demo.gif)
+![Demo](de
+
+
+
+
+
+mo.gif)
 
 
 -->
