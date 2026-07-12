@@ -1,153 +1,138 @@
 # 🚀 AI Resume Analyzer
-https://ai-resume-analyzer-tpbljxbxpqblld9bh3eqgw.streamlit.app/
 
-A multi-phase AI-powered resume analysis tool built with Streamlit, Firecrawl, and RAG.
+> AI-powered resume toolkit with ATS scoring, live job scraping, RAG-grounded analysis, and LLM critique — built with Groq LLaMA 3, Firecrawl, ChromaDB, and Streamlit.
+
+<!-- Add your demo GIF here after editing your video:
+![Demo](demo.gif)
+
+
+-->
+
+##(https://ai-resume-analyzer-tpbljxbxpqblld9bh3eqgw.streamlit.app/)
 
 ---
 
-## Project Structure
+## ✨ Features
+
+| Feature | Description |
+|---------|-------------|
+| 📊 ATS Scoring | AI matches resume against job description and gives a real 0-100 score |
+| 🌐 Live Job Scraping | Paste any LinkedIn or Indeed URL — Firecrawl fetches the JD automatically |
+| 🧠 RAG-Grounded Analysis | Retrieves 5 similar real-world JDs from ChromaDB to ground every insight in market data |
+| 🚨 Skill Gap Detection | Missing skills scored 0–10 with expandable fix recommendations |
+| 🤖 AI Resume Critique | Line-by-line weaknesses with Before → After rewrites and severity tags |
+| ✍️ Resume Rewriter | Rewrites weak bullets with strong action verbs in 3 tones |
+| 🎓 Career Mentor Chat | Personalized AI career advisor using your resume as context |
+| 📚 Learning Roadmap | Week-by-week plan to close skill gaps with specific resources |
+
+---
+
+## 🛠 Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Frontend | Streamlit |
+| LLM | Groq LLaMA 3.1 8b (free, fast inference) |
+| Job Scraping | Firecrawl (anti-bot handling, HTML stripping) |
+| Vector Store | ChromaDB (local persistent store) |
+| Embeddings | sentence-transformers `all-MiniLM-L6-v2` |
+| PDF/DOCX Parsing | pypdf + python-docx |
+| Deployment | Streamlit Community Cloud |
+
+---
+
+## 🏗 Architecture — 3 Phase Build
+
+### ✅ Phase 1 — Groq API + Clean Modular Architecture
+Replaced local Ollama with Groq's free cloud API so the app works for anyone. Split one 600-line file into proper modules with separated concerns.
+
+```
+utils/llm_client.py    → unified LLM interface (Groq/OpenAI/Anthropic)
+utils/resume_parser.py → PDF/DOCX parsing + AI-powered ATS scoring
+utils/prompts.py       → all LLM prompts in one place
+ui/                    → separated tab components
+config.py              → all feature flags in one place
+```
+
+### ✅ Phase 2 — Firecrawl Live Job Scraping
+Users paste a LinkedIn or Indeed URL instead of manually copying job descriptions. Firecrawl handles anti-bot protection, strips navigation/ads, and returns clean markdown text.
+
+### ✅ Phase 3 — RAG Pipeline with ChromaDB
+Embeds 29 real job descriptions into ChromaDB using sentence-transformers. At analysis time retrieves the 5 most similar JDs and injects them into the LLM prompt — grounding analysis in real market data instead of one example JD.
+
+```
+rag/sample_jds/     → 29 real job descriptions across 15+ roles
+rag/build_corpus.py → one-time embedding script
+rag/rag_pipeline.py → retrieval + context formatting
+```
+
+---
+
+## 📁 Project Structure
 
 ```
 resume_analyzer/
-├── app.py                  # Streamlit entry point
-├── config.py               # Feature flags & API keys (all phases)
-├── requirements.txt
-├── .env.example
+├── app.py                   # Streamlit entry point
+├── config.py                # Feature flags (USE_FIRECRAWL, USE_RAG)
 │
-├── ui/                     # Streamlit UI components
-│   ├── theme.py
-│   ├── sidebar.py
-│   ├── tab_analysis.py     # Main tab — integrates all phases
-│   ├── tab_mentor.py
-│   ├── tab_rewriter.py
-│   └── tab_roadmap.py
+├── ui/
+│   ├── theme.py             # Dark/light mode + 6 color themes
+│   ├── sidebar.py           # Settings + analysis history
+│   ├── tab_analysis.py      # Main analysis tab
+│   ├── tab_mentor.py        # Career mentor chatbot
+│   ├── tab_rewriter.py      # Resume rewriter
+│   └── tab_roadmap.py       # Learning roadmap generator
 │
-├── utils/                  # Core utilities
-│   ├── llm_client.py       # Unified Anthropic / OpenAI / Ollama client
-│   ├── resume_parser.py    # PDF/DOCX parsing + ATS keyword scoring
-│   └── prompts.py          # All LLM prompt builders in one place
+├── utils/
+│   ├── llm_client.py        # Unified LLM client
+│   ├── resume_parser.py     # PDF/DOCX parsing + AI skill extraction
+│   └── prompts.py           # All LLM prompt builders
 │
-├── tools/                  # External tool wrappers
-│   └── firecrawl_tool.py   # Phase 2: Firecrawl job scraper
+├── tools/
+│   └── firecrawl_tool.py    # Firecrawl job scraper
 │
-├── rag/                    # Phase 3: RAG pipeline
-│   ├── rag_pipeline.py     # ChromaDB vector store + retrieval
-│   └── build_corpus.py     # One-time corpus builder script
+└── rag/
+    ├── rag_pipeline.py      # ChromaDB vector store + retrieval
+    ├── build_corpus.py      # Corpus builder (run once)
+    └── sample_jds/          # 29 real job descriptions
 ```
 
 ---
 
-## Integration Roadmap
+## 🚀 Run Locally
 
-### ✅ Phase 1 — Clean Architecture + Claude API (Ship this first)
-
-**Goal:** Replace Ollama with Claude/OpenAI API so the app works for anyone without a local GPU.
-
-**Steps:**
 ```bash
-# 1. Clone and install
-pip install -r requirements.txt   # installs only Phase 1 deps at first
-
-# 2. Configure
-cp .env.example .env
-# Edit .env: set LLM_BACKEND=anthropic, add ANTHROPIC_API_KEY
-
-# 3. Run
-streamlit run app.py
-```
-
-**What you gain:**
-- Publicly deployable (Streamlit Community Cloud, Render)
-- Clean modular architecture (interviewers can read the code)
-- Separated concerns: llm_client / prompts / parser / ui
-- All 4 tabs working: Analysis, Mentor, Rewriter, Roadmap
-
-**Resume bullet:**
-> Built a modular AI resume analyzer (Claude API, Streamlit) with ATS scoring, LLM-powered critique, and resume rewriting — deployed publicly on Streamlit Cloud
-
----
-
-### 🔜 Phase 2 — Firecrawl (Live Job Scraping)
-
-**Goal:** Let users paste a LinkedIn/Indeed URL instead of copying job text manually.
-
-**Steps:**
-```bash
-# 1. Sign up at firecrawl.dev and get an API key
+# 1. Clone
+git clone https://github.com/mahikasingh1583-byte/ai-resume-analyzer
+cd ai-resume-analyzer
 
 # 2. Install
-pip install firecrawl-py
+pip install -r requirements.txt
 
-# 3. Enable in .env
-USE_FIRECRAWL=true
-FIRECRAWL_API_KEY=fc-your-key-here
+# 3. Configure
+cp .env.example .env
+# Fill in your keys (see below)
 
-# 4. Re-run — the JD input now shows a "Scrape URL" radio option
-streamlit run app.py
-```
-
-**What you gain:**
-- Users can paste any job URL — Firecrawl handles anti-bot, HTML stripping, markdown conversion
-- You can also build your RAG corpus by scraping 200+ JDs (see Phase 3)
-
-**Code touched:** `tools/firecrawl_tool.py` (already written), `ui/tab_analysis.py` (already integrated behind `USE_FIRECRAWL` flag)
-
-**Resume addition:**
-> Integrated Firecrawl web scraping to extract live job descriptions from LinkedIn/Indeed URLs — eliminated manual copy-paste for users
-
----
-
-### 🔜 Phase 3 — RAG with ChromaDB (Market-Grounded Analysis)
-
-**Goal:** Ground every analysis in real market data by retrieving similar job descriptions from a vector store.
-
-**Steps:**
-```bash
-# 1. Install
-pip install chromadb sentence-transformers
-
-# 2. Build your corpus
-# Option A: Add .txt files to rag/sample_jds/ (manual)
-# Option B: Add URLs to rag/jd_urls.txt and run (requires Firecrawl):
+# 4. Build RAG corpus (first time only)
 python rag/build_corpus.py
 
-# 3. Enable in .env
-USE_RAG=true
-
-# 4. Re-run
+# 5. Run
 streamlit run app.py
 ```
 
-**How it works:**
-1. `build_corpus.py` scrapes/loads 100-300 job descriptions
-2. `sentence-transformers` (`all-MiniLM-L6-v2`) embeds them into ChromaDB
-3. At analysis time, the user's JD is embedded and the top-5 most similar JDs are retrieved
-4. Those 5 JDs are injected into the LLM prompt as "market context"
-5. The LLM now produces analysis grounded in what this role actually looks like across the market
+### Environment Variables
 
-**Code touched:** `rag/rag_pipeline.py`, `rag/build_corpus.py` (both already written)
-
-**Resume addition:**
-> Added RAG pipeline (ChromaDB + sentence-transformers) grounding analysis in a 300-JD market corpus — reduced vague/hallucinated feedback by anchoring LLM output in retrieved real-world role requirements
-
----
-
-## Deployment (after Phase 1)
-
-### Streamlit Community Cloud (free)
-1. Push to GitHub
-2. Go to share.streamlit.io → New app
-3. Add secrets: `ANTHROPIC_API_KEY`, `LLM_BACKEND=anthropic`
-4. Deploy
-
-### Render / Railway
 ```bash
-# Start command:
-streamlit run app.py --server.port $PORT --server.address 0.0.0.0
+LLM_BACKEND=openai
+OPENAI_API_KEY=gsk_your_groq_key    # Get free at console.groq.com
+USE_FIRECRAWL=true
+FIRECRAWL_API_KEY=fc_your_key       # Get free at firecrawl.dev
+USE_RAG=true
 ```
 
 ---
 
-## The resume bullet (final form after all 4 phases)
+## 👩‍💻 Built by
 
-> "Architected a 4-phase AI resume analyzer: Claude API-powered ATS scoring and critique (Phase 1), Firecrawl live job scraping from LinkedIn/Indeed (Phase 2), RAG pipeline with ChromaDB + sentence-transformers grounding analysis in a 300-JD market corpus (Phase 3), and a 5-agent CrewAI system with specialist agents for JD analysis, critique, market research, rewriting, and interview prep — deployed publicly on Streamlit Cloud"
+**Mahika Singh** 
+[GitHub](https://github.com/mahikasingh1583-byte)
