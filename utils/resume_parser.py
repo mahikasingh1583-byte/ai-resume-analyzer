@@ -72,6 +72,43 @@ def _normalize(s: str) -> str:
 _SKILLS_NORM: dict[str, str] = {_normalize(s): s for s in SKILLS_DB}
 
 
+# ── Robust skill-list splitter ────────────────────────────────────────────────
+
+def _split_skill_list(raw: str) -> list[str]:
+    """
+    Robustly split an LLM skill list into individual items.
+    Handles comma-separated, newline-separated, and bulleted (-, *, •) formats,
+    so a stray change in how the model formats its output (e.g. switching from
+    'skill1, skill2, skill3' to a dashed bullet list) can't collapse everything
+    into one giant blob.
+    """
+    if not raw:
+        return []
+
+    # Strip common bullet markers at the start of each line
+    cleaned = re.sub(r"(?m)^\s*[-*•]\s*", "", raw)
+
+    # Prefer comma-splitting when commas are present (original behavior)
+    if "," in cleaned:
+        parts = cleaned.split(",")
+    else:
+        # Otherwise fall back to newline-splitting (bulleted/line-based format)
+        parts = cleaned.split("\n")
+
+    items = [
+        s.strip(" -*•\t")
+        for s in parts
+        if s.strip(" -*•\t") and s.strip().lower() not in ("none", "n/a", "")
+    ]
+
+    # Sanity guard: reject anything that looks like a mega-blob rather than
+    # a real skill/tool name (protects against unexpected LLM formatting
+    # that neither commas nor newlines catch).
+    items = [s for s in items if len(s) < 60]
+
+    return items
+
+
 # ── Main analyze function ─────────────────────────────────────────────────────
 
 def analyze_resume(resume_text: str, jd_text: str) -> dict:
@@ -132,17 +169,11 @@ You MUST list at least 5 missing skills. There are always gaps — look harder."
 
         if matched_match:
             raw = matched_match.group(1).strip()
-            matched = [
-                s.strip() for s in raw.split(",")
-                if s.strip() and s.strip().lower() not in ("none", "n/a", "")
-            ]
+            matched = _split_skill_list(raw)
 
         if missing_match:
             raw = missing_match.group(1).strip()
-            missing = [
-                s.strip() for s in raw.split(",")
-                if s.strip() and s.strip().lower() not in ("none", "n/a", "")
-            ]
+            missing = _split_skill_list(raw)
 
         if score_match:
             score = int(score_match.group(1))
@@ -160,10 +191,7 @@ Resume: {resume_text[:800]}
 Reply with ONLY a comma separated list. No explanations. No numbering.""",
                 max_tokens=150
             )
-            missing = [
-                s.strip() for s in simple.split(",")
-                if s.strip() and len(s.strip()) > 1
-            ][:10]
+            missing = _split_skill_list(simple)[:10]
 
         # Last resort — keyword fallback
         if not matched and not missing:

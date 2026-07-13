@@ -4,6 +4,7 @@ Upgraded UI: skill score pills, expandable weakness cards, areas for improvement
 """
 
 from __future__ import annotations
+import os
 import streamlit as st
 from datetime import datetime
 
@@ -16,6 +17,14 @@ from config              import USE_FIRECRAWL, USE_RAG, USE_CREW
 
 def render(tv: dict) -> None:
 
+    # ── Get usage count ───────────────────────────────────────────────────────
+    try:
+        from utils.counter import get_count
+        total_count = get_count()
+        usage_badge = f"🔥 {total_count}+ resumes analyzed" if total_count > 0 else ""
+    except Exception:
+        usage_badge = ""
+
     # ── Hero ─────────────────────────────────────────────────────────────────
     hero_col, anim_col = st.columns([2, 1])
     with hero_col:
@@ -24,7 +33,9 @@ def render(tv: dict) -> None:
             f'<h3 style="margin-top:0;">🎯 Land Your Dream Job Faster</h3>'
             f'<p style="font-size:15.5px;opacity:.9;">'
             f'ATS score · missing skills · line-by-line critique · interview prep — all in one run.'
-            f'</p></div>',
+            f'</p>'
+            f'<p style="font-size:13px;opacity:0.7;margin-top:8px;">{usage_badge}</p>'
+            f'</div>',
             unsafe_allow_html=True,
         )
     with anim_col:
@@ -37,12 +48,15 @@ def render(tv: dict) -> None:
     with col1:
         with st.container(border=True):
             st.subheader("📄 Resume")
-            resume = st.file_uploader("Upload Resume", type=["pdf", "docx"],
-                                      label_visibility="collapsed")
+            resume = st.file_uploader(
+                "Upload Resume", type=["pdf", "docx"],
+                label_visibility="collapsed"
+            )
     with col2:
         with st.container(border=True):
             st.subheader("💼 Job Description")
 
+            # ── PHASE 2: Firecrawl URL input ──────────────────────────────────
             if USE_FIRECRAWL:
                 jd_source = st.radio(
                     "Source", ["Paste text", "Scrape URL"],
@@ -71,6 +85,7 @@ def render(tv: dict) -> None:
                         placeholder="Paste the job description here …",
                         label_visibility="collapsed",
                     )
+            # ── PHASE 1: plain paste ──────────────────────────────────────────
             else:
                 job_description = st.text_area(
                     "Job Description", height=180,
@@ -96,9 +111,11 @@ def render(tv: dict) -> None:
 
     with st.expander("📄 View extracted text"):
         st.text_area("", resume_text, height=250, label_visibility="collapsed")
-        st.download_button("📥 Download text", resume_text,
-                           "resume_text.txt", "text/plain",
-                           use_container_width=True)
+        st.download_button(
+            "📥 Download text", resume_text,
+            "resume_text.txt", "text/plain",
+            use_container_width=True
+        )
 
     st.divider()
 
@@ -109,26 +126,32 @@ def render(tv: dict) -> None:
         st.warning("⚠ Please provide a job description before analyzing.")
         return
 
-# ── RAG context ───────────────────────────────────────────────────────────
+    # ── PHASE 3: RAG context retrieval ───────────────────────────────────────
     rag_context = ""
     if USE_RAG:
         with st.spinner("🔍 Retrieving similar roles from market corpus …"):
             try:
-                from rag.rag_pipeline import retrieve_similar_jds, format_rag_context, is_available
-                st.write("RAG available:", is_available())
-                similar = retrieve_similar_jds(job_description)
-                st.write("Similar JDs found:", len(similar))
-                rag_context = format_rag_context(similar)
-                if rag_context:
-                    st.caption(f"📚 RAG: grounded analysis with {len(similar)} similar JDs.")
-                else:
-                    st.caption("RAG: no similar JDs found.")
-            except Exception as e:
-                st.caption(f"RAG error: {e}")
-    else:
-        st.write("USE_RAG is False")
+                from rag.rag_pipeline import retrieve_similar_jds, format_rag_context
 
-    # ── CrewAI ────────────────────────────────────────────────────────────────
+                chroma_found = any(
+                    os.path.exists(p) for p in
+                    ["./chroma_db", "chroma_db", "../chroma_db"]
+                )
+
+                if chroma_found:
+                    similar     = retrieve_similar_jds(job_description)
+                    rag_context = format_rag_context(similar)
+                    if rag_context:
+                        st.caption(f"📚 RAG: grounded analysis with {len(similar)} similar JDs.")
+                    else:
+                        st.caption("📚 RAG: vector store found but no similar JDs returned.")
+                else:
+                    st.caption("📚 RAG: vector store not found — run `python rag/build_corpus.py` first.")
+
+            except Exception as e:
+                st.caption(f"📚 RAG skipped: {e}")
+
+    # ── PHASE 4: CrewAI multi-agent pipeline ─────────────────────────────────
     if USE_CREW:
         with st.spinner("🤖 Running CrewAI pipeline …"):
             try:
@@ -149,10 +172,7 @@ def render(tv: dict) -> None:
         )
         feedback = ask_llm(prompt, max_tokens=1500)
 
-        # Get skill scores for missing skills
-        skill_scores = _get_skill_scores(
-            resume_text, result["missing"], ask_llm
-        )
+        skill_scores = _get_skill_scores(resume_text, result["missing"])
 
     _save_result(resume.name, result, job_description)
     _render_single_results(result, feedback, resume, tv, skill_scores)
@@ -160,11 +180,8 @@ def render(tv: dict) -> None:
 
 # ── Skill scoring ─────────────────────────────────────────────────────────────
 
-def _get_skill_scores(resume_text: str, missing_skills: list, ask_llm_fn) -> dict:
-    """
-    Ask AI to score each missing skill from 0-10 based on how much
-    evidence exists in the resume. 0 = not mentioned at all, 10 = strong evidence.
-    """
+def _get_skill_scores(resume_text: str, missing_skills: list) -> dict:
+    """Score each missing skill 0-10 based on resume evidence."""
     if not missing_skills:
         return {}
 
@@ -183,8 +200,8 @@ Docker:0, Kubernetes:2, AWS:1, PostgreSQL:3
 No extra text."""
 
     try:
-        response = ask_llm_fn(prompt, max_tokens=150)
-        scores = {}
+        response = ask_llm(prompt, max_tokens=150)
+        scores   = {}
         for item in response.split(","):
             item = item.strip()
             if ":" in item:
@@ -192,8 +209,7 @@ No extra text."""
                 skill = parts[0].strip()
                 try:
                     score = int("".join(filter(str.isdigit, parts[1])))
-                    score = max(0, min(10, score))
-                    scores[skill] = score
+                    scores[skill] = max(0, min(10, score))
                 except Exception:
                     scores[skill] = 0
         return scores
@@ -201,7 +217,7 @@ No extra text."""
         return {skill: 0 for skill in missing_skills}
 
 
-# ── Render helpers ────────────────────────────────────────────────────────────
+# ── Save result ───────────────────────────────────────────────────────────────
 
 def _save_result(filename: str, result: dict, jd: str) -> None:
     st.session_state.last_analysis_result = result
@@ -212,6 +228,26 @@ def _save_result(filename: str, result: dict, jd: str) -> None:
         "time":     datetime.now().strftime("%H:%M:%S"),
     })
 
+    # Increment global usage counter
+    try:
+        from utils.counter import increment_count
+        increment_count()
+    except Exception:
+        # Fallback to file-based counter if Supabase not configured
+        try:
+            counter_file = "usage_count.txt"
+            count = 0
+            if os.path.exists(counter_file):
+                with open(counter_file, "r") as f:
+                    count = int(f.read().strip() or 0)
+            count += 1
+            with open(counter_file, "w") as f:
+                f.write(str(count))
+        except Exception:
+            pass
+
+
+# ── Main results renderer ─────────────────────────────────────────────────────
 
 def _render_single_results(
     result: dict, feedback: str, resume, tv: dict, skill_scores: dict
@@ -220,8 +256,10 @@ def _render_single_results(
 
     # ── ATS Score gauge ───────────────────────────────────────────────────────
     st.subheader("📊 ATS Match Score")
-    st.markdown(gauge_html(result["score"], tv["card"], tv["border"], tv["text"]),
-                unsafe_allow_html=True)
+    st.markdown(
+        gauge_html(result["score"], tv["card"], tv["border"], tv["text"]),
+        unsafe_allow_html=True,
+    )
     st.progress(result["score"] / 100)
 
     st.divider()
@@ -234,24 +272,23 @@ def _render_single_results(
 
     st.divider()
 
-    # ── Matched skills as green pills ─────────────────────────────────────────
+    # ── Matched skills ────────────────────────────────────────────────────────
     if result["matched"]:
         st.subheader("✅ Skills Found")
         _render_matched_pills(result["matched"])
 
     st.write("")
 
-    # ── Missing skills as scored pills ───────────────────────────────────────
+    # ── Missing skills with scores ────────────────────────────────────────────
     if result["missing"]:
         st.subheader("🚨 Areas for Improvement")
-        st.caption("Each skill is scored based on how much evidence exists in your resume (0 = not mentioned, 10 = strong evidence)")
+        st.caption("Score shows how much evidence exists in your resume (0 = not mentioned, 10 = strong evidence)")
         _render_scored_pills(result["missing"], skill_scores)
 
         st.write("")
 
-        # ── Expandable weakness cards ─────────────────────────────────────────
         st.subheader("📋 Detailed Weakness Analysis")
-        _render_weakness_cards(result["missing"], skill_scores, resume_text="")
+        _render_weakness_cards(result["missing"], skill_scores)
 
     st.divider()
 
@@ -279,8 +316,9 @@ def _render_single_results(
     st.balloons()
 
 
+# ── Skill pill renderers ──────────────────────────────────────────────────────
+
 def _render_matched_pills(skills: list) -> None:
-    """Render matched skills as green pills."""
     html = '<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;">'
     for skill in skills:
         html += f"""
@@ -295,20 +333,17 @@ def _render_matched_pills(skills: list) -> None:
 
 
 def _render_scored_pills(skills: list, scores: dict) -> None:
-    """Render missing skills as colored pills with score badges."""
     html = '<div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:10px;">'
     for skill in skills:
         score = scores.get(skill, 0)
-
-        # Color based on score
         if score <= 2:
-            bg = "linear-gradient(135deg,#EF4444,#DC2626)"
+            bg     = "linear-gradient(135deg,#EF4444,#DC2626)"
             shadow = "rgba(239,68,68,0.3)"
         elif score <= 5:
-            bg = "linear-gradient(135deg,#F59E0B,#D97706)"
+            bg     = "linear-gradient(135deg,#F59E0B,#D97706)"
             shadow = "rgba(245,158,11,0.3)"
         else:
-            bg = "linear-gradient(135deg,#6366F1,#4F46E5)"
+            bg     = "linear-gradient(135deg,#6366F1,#4F46E5)"
             shadow = "rgba(99,102,241,0.3)"
 
         html += f"""
@@ -330,11 +365,9 @@ def _render_scored_pills(skills: list, scores: dict) -> None:
     st.markdown(html, unsafe_allow_html=True)
 
 
-def _render_weakness_cards(skills: list, scores: dict, resume_text: str) -> None:
-    """Render expandable weakness cards for each missing skill."""
+def _render_weakness_cards(skills: list, scores: dict) -> None:
     for skill in skills:
         score = scores.get(skill, 0)
-
         if score <= 2:
             icon  = "🔴"
             label = "Critical Gap"
@@ -356,15 +389,21 @@ def _render_weakness_cards(skills: list, scores: dict, resume_text: str) -> None
 - Even mentioning related tools can help bridge the gap
 """)
             elif score <= 5:
-                st.warning(f"**Issue:** Your resume mentions {skill} briefly but doesn't demonstrate strong proficiency.")
+                st.warning(
+                    f"**Issue:** Your resume mentions {skill} briefly "
+                    f"but doesn't demonstrate strong proficiency."
+                )
                 st.markdown(f"""
 **How to fix it:**
 - Add specific examples of how you used {skill} in projects
 - Include metrics or outcomes from your {skill} experience
-- List specific tools, frameworks, or versions you've worked with
+- List specific tools frameworks or versions you have worked with
 """)
             else:
-                st.info(f"**Issue:** You have some {skill} experience but it could be more prominent.")
+                st.info(
+                    f"**Issue:** You have some {skill} experience "
+                    f"but it could be more prominent."
+                )
                 st.markdown(f"""
 **How to fix it:**
 - Move {skill} higher in your skills section
@@ -373,8 +412,9 @@ def _render_weakness_cards(skills: list, scores: dict, resume_text: str) -> None
 """)
 
 
+# ── Feedback formatter ────────────────────────────────────────────────────────
+
 def _format_feedback(text: str) -> str:
-    """Clean up AI response formatting."""
     import re
 
     lines = text.split('\n')
@@ -396,14 +436,16 @@ def _format_feedback(text: str) -> str:
             fixed.append(line)
 
     text = '\n'.join(fixed)
-    text = re.sub(r'\s*•\s*', '\n\n- ', text)
+    text = re.sub(r'\s*•\s*',        '\n\n- ',        text)
     text = re.sub(r'\[(Critical|Moderate|Minor)\]', r'**[\1]**', text)
     text = re.sub(r'\*\*Before:\*\*', '\n\n**Before:**', text)
     text = re.sub(r'\*\*After:\*\*',  '\n**After:**',    text)
     text = re.sub(r'\*\*Why:\*\*',    '\n**Why:**',      text)
-    text = re.sub(r'\n{3,}', '\n\n', text)
+    text = re.sub(r'\n{3,}',          '\n\n',            text)
     return text.strip()
 
+
+# ── CrewAI results renderer ───────────────────────────────────────────────────
 
 def _render_crew_results(crew: dict, resume, tv: dict) -> None:
     st.success("🎉 CrewAI analysis complete!")
@@ -427,6 +469,8 @@ def _render_crew_results(crew: dict, resume, tv: dict) -> None:
     st.balloons()
 
 
+# ── Scan animation ────────────────────────────────────────────────────────────
+
 def _scan_animation(tv: dict) -> None:
     st.markdown(f"""
 <div style="position:relative;width:150px;height:170px;margin:0 auto;
@@ -437,12 +481,17 @@ def _scan_animation(tv: dict) -> None:
        border:1.5px solid {tv['border']};border-radius:10px;overflow:hidden;
        animation:docFloat 3.2s ease-in-out infinite;">
     <div style="position:absolute;left:0;top:0;width:100%;height:22px;
-         background:linear-gradient(180deg,rgba(99,102,241,0),rgba(99,102,241,.45),rgba(99,102,241,0));
+         background:linear-gradient(180deg,rgba(99,102,241,0),
+         rgba(99,102,241,.45),rgba(99,102,241,0));
          animation:scanMove 2.4s ease-in-out infinite;"></div>
-    <div style="height:7px;margin:12px 12px 0;border-radius:4px;background:#818CF8;opacity:.55;"></div>
-    <div style="height:7px;margin:10px 12px 0;width:70%;border-radius:4px;background:#818CF8;opacity:.55;"></div>
-    <div style="height:7px;margin:10px 12px 0;width:85%;border-radius:4px;background:#818CF8;opacity:.55;"></div>
-    <div style="height:7px;margin:10px 12px 0;width:55%;border-radius:4px;background:#818CF8;opacity:.55;"></div>
+    <div style="height:7px;margin:12px 12px 0;border-radius:4px;
+         background:#818CF8;opacity:.55;"></div>
+    <div style="height:7px;margin:10px 12px 0;width:70%;border-radius:4px;
+         background:#818CF8;opacity:.55;"></div>
+    <div style="height:7px;margin:10px 12px 0;width:85%;border-radius:4px;
+         background:#818CF8;opacity:.55;"></div>
+    <div style="height:7px;margin:10px 12px 0;width:55%;border-radius:4px;
+         background:#818CF8;opacity:.55;"></div>
   </div>
 </div>
 <style>

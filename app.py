@@ -24,6 +24,7 @@ _defaults = {
     "last_analysis_result": None,
     "last_job_description": "",
     "jd_source": "paste",   # "paste" | "url" (Phase 2)
+    "cover_letter": ""
 }
 for k, v in _defaults.items():
     st.session_state.setdefault(k, v)
