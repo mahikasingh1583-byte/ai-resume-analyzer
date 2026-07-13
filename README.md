@@ -14,7 +14,7 @@ mo.gif)
 
 -->
 
-##(https://ai-resume-analyzer-tpbljxbxpqblld9bh3eqgw.streamlit.app/)
+##()
 
 ---
 
