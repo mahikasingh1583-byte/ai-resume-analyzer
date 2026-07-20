@@ -69,7 +69,7 @@ Users paste a LinkedIn or Indeed URL instead of manually copying job description
 Embeds 29 real job descriptions into ChromaDB using sentence-transformers. At analysis time retrieves the 5 most similar JDs and injects them into the LLM prompt — grounding analysis in real market data instead of one example JD.
 
 ```
-rag/sample_jds/     → 29 real job descriptions across 15+ roles
+rag/sample_jds/     → 49 real job descriptions across 15+ roles
 rag/build_corpus.py → one-time embedding script
 rag/rag_pipeline.py → retrieval + context formatting
 ```
